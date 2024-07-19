@@ -1,5 +1,6 @@
 ﻿using Common.Domain;
 using DBBroker;
+using Server.SystemOperation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,19 @@ namespace Server
         }
         private Controller() { broker = new Broker(); }
         
-        public Korisnik Login(Korisnik user)
+        public Korisnik Login(Korisnik korisnik)
         {
-            //LoginSO so = new LoginSO(user);
-            //so.ExecuteTemplate();
-            //return so.Result;
-            return null;
-
+            NadjiKorisnikaSO so = new NadjiKorisnikaSO(korisnik);
+            so.ExecuteTemplate();
+            return so.Result;
         }
-        
+
+        public Bibliotekar LoginB(Bibliotekar bibliotekar)
+        {
+            NadjiBibliotekaraSO so = new NadjiBibliotekaraSO(bibliotekar);
+            so.ExecuteTemplate();
+            return so.Result;
+        }
+
     }
 }

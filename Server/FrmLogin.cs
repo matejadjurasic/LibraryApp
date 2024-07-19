@@ -1,4 +1,4 @@
-﻿using Client.GuiController;
+﻿using Server.GuiControllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Client
+namespace Server
 {
     public partial class FrmLogin : Form
     {
@@ -18,6 +18,5 @@ namespace Client
             InitializeComponent();
             btnLogin.Click += LoginGuiController.Instance.Login;
         }
-
     }
 }

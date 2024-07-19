@@ -55,6 +55,7 @@
     <Compile Include="Communication\Response.cs" />
     <Compile Include="Communication\Sender.cs" />
     <Compile Include="Domain\Bibliotekar.cs" />
+    <Compile Include="Domain\IEntity.cs" />
     <Compile Include="Domain\Knjiga.cs" />
     <Compile Include="Domain\KnjigaPisac.cs" />
     <Compile Include="Domain\Korisnik.cs" />
@@ -81,6 +82,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Default_library_login_page_background_0.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
