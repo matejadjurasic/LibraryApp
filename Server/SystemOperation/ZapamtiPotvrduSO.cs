@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,25 @@ namespace Server.SystemOperation
 {
     public class ZapamtiPotvrduSO : SystemOperationBase
     {
+        private readonly Potvrda potvrda;
+        private readonly int potvrdaId;
+
+        public bool Result { get; private set; }
+
+        public ZapamtiPotvrduSO(Potvrda potvrda, int potvrdaId)
+        {
+            this.potvrda = potvrda;
+            this.potvrdaId = potvrdaId;
+        }
+
         protected override void ExecuteConcreteOperation()
         {
-            throw new NotImplementedException();
+            Result = broker.UpdateConfirmation(potvrda);
+            foreach (StavkaPotvrde item in potvrda.Stavke)
+            {
+                item.Knjiga.BrojDostupnihKopija += item.Kolicina;
+                broker.UpdateEntity(item.Knjiga, item.Knjiga.KnjigaId);
+            }
         }
     }
 }

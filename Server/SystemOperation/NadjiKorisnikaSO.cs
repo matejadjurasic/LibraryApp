@@ -10,7 +10,7 @@ namespace Server.SystemOperation
     public class NadjiKorisnikaSO : SystemOperationBase
     {
         private readonly Korisnik k;
-        public Korisnik Result { get; set; }
+        public Korisnik Result { get; private set; }
         public NadjiKorisnikaSO(Korisnik k)
         {
             this.k = k;

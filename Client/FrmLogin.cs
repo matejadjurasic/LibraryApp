@@ -17,6 +17,7 @@ namespace Client
         {
             InitializeComponent();
             btnLogin.Click += LoginGuiController.Instance.Login;
+            this.FormClosed += LoginGuiController.Instance.FormClosed;
         }
 
     }

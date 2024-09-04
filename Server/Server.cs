@@ -41,6 +41,7 @@ namespace Server
                 {
                     Socket klijentskiSoket = socket.Accept();
                     ClientHandler handler = new ClientHandler(klijentskiSoket);
+                    Controller.Instance.Clients.Add(handler);
                     Thread klijentskaNit = new Thread(handler.HandleRequest);
                     klijentskaNit.Start();
                 }
@@ -54,6 +55,11 @@ namespace Server
 
         public void Stop()
         {
+            /*foreach (ClientHandler client in Controller.Instance.Clients)
+            {
+                client.SendShutdownNotification(); // Notify client to close
+            }*/
+
             socket.Close();
         }
     }

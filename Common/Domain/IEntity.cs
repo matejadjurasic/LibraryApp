@@ -11,6 +11,7 @@ namespace Common.Domain
     {
         string TableName { get; }
         string Values { get; }
+        string ColumnNames { get; }
 
         List<IEntity> GetReaderList(SqlDataReader reader);
     }

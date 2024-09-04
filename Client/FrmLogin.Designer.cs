@@ -42,18 +42,18 @@ namespace Client
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(324, 154);
+            this.label1.Location = new System.Drawing.Point(198, 202);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
+            this.label1.Text = "Korisnicko Ime:";
             // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.Color.SteelBlue;
-            this.txtUsername.Location = new System.Drawing.Point(327, 173);
+            this.txtUsername.Location = new System.Drawing.Point(301, 199);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 22);
+            this.txtUsername.Size = new System.Drawing.Size(156, 22);
             this.txtUsername.TabIndex = 1;
             // 
             // label2
@@ -61,26 +61,26 @@ namespace Client
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(326, 209);
+            this.label2.Location = new System.Drawing.Point(258, 247);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.Size = new System.Drawing.Size(37, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Password:";
+            this.label2.Text = "Sifra:";
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.Color.SteelBlue;
-            this.txtPassword.Location = new System.Drawing.Point(327, 228);
+            this.txtPassword.Location = new System.Drawing.Point(301, 244);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(100, 22);
+            this.txtPassword.Size = new System.Drawing.Size(156, 22);
             this.txtPassword.TabIndex = 3;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(329, 306);
+            this.btnLogin.Location = new System.Drawing.Point(301, 306);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(88, 32);
+            this.btnLogin.Size = new System.Drawing.Size(156, 24);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@ namespace Client
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmLogin";
-            this.Text = "FrmLogin";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,6 +10,7 @@ namespace Common.Communication
     public class Response
     {
         public object Result { get; set; }
+        public Operation Operation { get; set; }
         public Exception Exception { get; set; }
     }
 }

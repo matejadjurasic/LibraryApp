@@ -42,36 +42,36 @@ namespace Server
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(326, 155);
+            this.label1.Location = new System.Drawing.Point(195, 193);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.Size = new System.Drawing.Size(97, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
+            this.label1.Text = "Korisnicko Ime:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(326, 218);
+            this.label2.Location = new System.Drawing.Point(255, 240);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.Size = new System.Drawing.Size(37, 16);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Password:";
+            this.label2.Text = "Sifra:";
             // 
             // txtUsername
             // 
             this.txtUsername.BackColor = System.Drawing.SystemColors.Highlight;
-            this.txtUsername.Location = new System.Drawing.Point(329, 174);
+            this.txtUsername.Location = new System.Drawing.Point(298, 193);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(100, 22);
+            this.txtUsername.Size = new System.Drawing.Size(165, 22);
             this.txtUsername.TabIndex = 2;
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(329, 307);
+            this.btnLogin.Location = new System.Drawing.Point(298, 293);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(93, 31);
+            this.btnLogin.Size = new System.Drawing.Size(165, 26);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -79,9 +79,10 @@ namespace Server
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.Highlight;
-            this.txtPassword.Location = new System.Drawing.Point(329, 237);
+            this.txtPassword.Location = new System.Drawing.Point(298, 237);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(100, 22);
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(165, 22);
             this.txtPassword.TabIndex = 4;
             // 
             // FrmLogin
@@ -97,7 +98,7 @@ namespace Server
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmLogin";
-            this.Text = "Form1";
+            this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

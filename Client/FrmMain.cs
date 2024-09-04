@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.GuiController;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,9 @@ namespace Client
         public FrmMain()
         {
             InitializeComponent();
+            btnLogout.Click += MainGuiController.Instance.Logout;
+            txtSearchTerm.TextChanged += MainGuiController.Instance.Search;
+            this.FormClosed += MainGuiController.Instance.FormClosed;
         }
     }
 }

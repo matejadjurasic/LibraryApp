@@ -10,7 +10,7 @@ namespace Server.SystemOperation
     public class NadjiBibliotekaraSO : SystemOperationBase
     {
         private readonly Bibliotekar b;
-        public Bibliotekar Result { get; set; }
+        public Bibliotekar Result { get; private set; }
         public NadjiBibliotekaraSO(Bibliotekar b)
         {
             this.b = b;

@@ -25,5 +25,10 @@ namespace Common.Communication
         {
             return _formatter.Deserialize(_stream);
         }
+
+        public void Stop()
+        {
+            _stream.Close();
+        }
     }
 }

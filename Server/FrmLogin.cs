@@ -17,6 +17,7 @@ namespace Server
         {
             InitializeComponent();
             btnLogin.Click += LoginGuiController.Instance.Login;
+            this.FormClosed += LoginGuiController.Instance.FormClosed;
         }
     }
 }

@@ -2,6 +2,8 @@
 using Common.Domain;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,12 +31,20 @@ namespace Client.GuiController
 
         internal void ShowFrmLogin()
         {
-            Communication.Instance.Connect();
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            frmLogin = new FrmLogin();
-            frmLogin.AutoSize = true;
-            Application.Run(frmLogin);
+            try
+            {
+                Communication.Instance.Connect();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                frmLogin = new FrmLogin();
+                frmLogin.AutoSize = true;
+                Application.Run(frmLogin);
+            }catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Can't connect to server");
+                Application.Exit();
+            }
         }
 
         public void Login(object sender, EventArgs e)
@@ -55,6 +65,17 @@ namespace Client.GuiController
             {
                 MessageBox.Show("Error logging in");
             }
+        }
+
+        internal void SetVisible()
+        {
+            frmLogin.Visible=true;
+        }
+
+        internal void FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Communication.Instance.Exit();
+            Application.Exit();
         }
     }
 }

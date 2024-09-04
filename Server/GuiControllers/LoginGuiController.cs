@@ -20,8 +20,14 @@ namespace Server.GuiControllers
                 return instance; 
             } 
         }
+
+        public Server Server { get => server; set => server = value; }
+        public bool ServerStatus { get => serverStatus; set => serverStatus = value; }
+
         private FrmLogin frmLogin;
         private Bibliotekar bibliotekar;
+        private Server server;
+        private bool serverStatus = false;
         
         public LoginGuiController()
         {
@@ -37,6 +43,11 @@ namespace Server.GuiControllers
             Application.Run(frmLogin);
         }
 
+        public void SetVisible()
+        {
+            frmLogin.Visible = true;
+        }
+        
         public void Login(object sender, EventArgs e)
         {
             Bibliotekar b = new Bibliotekar
@@ -51,13 +62,22 @@ namespace Server.GuiControllers
             if (bibliotekar != null)
             {
                 frmLogin.Visible = false;
-                MainGuiController.Instance.ShowFrmMain(bibliotekar);
+                MainGuiController.Instance.ShowFrmMain(bibliotekar, serverStatus);
 
             }
             else
             {
-                MessageBox.Show("Error logging in");
+                MessageBox.Show("Neuspesna prijava, uneti su nepostojeci parametri!");
             }
+        }
+
+        internal void FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (serverStatus)
+            {
+                server.Stop();
+            }
+            Application.Exit();
         }
     }
 }
