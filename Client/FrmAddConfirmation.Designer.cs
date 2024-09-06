@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Server
+namespace Client
 {
     partial class FrmAddConfirmation
     {

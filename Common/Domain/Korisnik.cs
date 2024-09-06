@@ -34,6 +34,11 @@ namespace Common.Domain
             return -1215096106 + KorisnikId.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
+
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             List<IEntity> korisnici = new List<IEntity>();

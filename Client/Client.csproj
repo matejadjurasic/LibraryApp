@@ -47,6 +47,42 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Communication.cs" />
+    <Compile Include="FrmAddConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddConfirmation.Designer.cs">
+      <DependentUpon>FrmAddConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBook.Designer.cs">
+      <DependentUpon>FrmBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfirmation.Designer.cs">
+      <DependentUpon>FrmConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreateBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateBook.Designer.cs">
+      <DependentUpon>FrmCreateBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateUser.Designer.cs">
+      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCreateWriter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCreateWriter.Designer.cs">
+      <DependentUpon>FrmCreateWriter.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,15 +95,59 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUserMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserMain.Designer.cs">
+      <DependentUpon>FrmUserMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUser.Designer.cs">
+      <DependentUpon>FrmUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuiController\AddConfirmationGuiController.cs" />
+    <Compile Include="GuiController\BookGuiController.cs" />
+    <Compile Include="GuiController\ConfirmationGuiController.cs" />
+    <Compile Include="GuiController\CreateBookGuiController.cs" />
+    <Compile Include="GuiController\CreateUserGuiController.cs" />
+    <Compile Include="GuiController\CreateWriterGuiController.cs" />
     <Compile Include="GuiController\LoginGuiController.cs" />
     <Compile Include="GuiController\MainGuiController.cs" />
+    <Compile Include="GuiController\UserGuiController.cs" />
+    <Compile Include="GuiController\UserMainGuiController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddConfirmation.resx">
+      <DependentUpon>FrmAddConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBook.resx">
+      <DependentUpon>FrmBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfirmation.resx">
+      <DependentUpon>FrmConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateBook.resx">
+      <DependentUpon>FrmCreateBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateUser.resx">
+      <DependentUpon>FrmCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCreateWriter.resx">
+      <DependentUpon>FrmCreateWriter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserMain.resx">
+      <DependentUpon>FrmUserMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUser.resx">
+      <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

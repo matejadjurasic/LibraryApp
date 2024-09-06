@@ -58,18 +58,18 @@ namespace Server
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(18, 455);
+            this.btnStart.Location = new System.Drawing.Point(21, 597);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(194, 27);
+            this.btnStart.Size = new System.Drawing.Size(219, 34);
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Pokreni";
             this.btnStart.UseVisualStyleBackColor = true;
             // 
             // btnStop
             // 
-            this.btnStop.Location = new System.Drawing.Point(18, 488);
+            this.btnStop.Location = new System.Drawing.Point(21, 640);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(194, 27);
+            this.btnStop.Size = new System.Drawing.Size(219, 34);
             this.btnStop.TabIndex = 1;
             this.btnStop.Text = "Zaustavi";
             this.btnStop.UseVisualStyleBackColor = true;
@@ -77,112 +77,116 @@ namespace Server
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 436);
+            this.label1.Location = new System.Drawing.Point(17, 573);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 16);
+            this.label1.Size = new System.Drawing.Size(142, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Serverske Opcije:";
             // 
             // btnViewUser
             // 
-            this.btnViewUser.Location = new System.Drawing.Point(491, 280);
+            this.btnViewUser.Location = new System.Drawing.Point(552, 368);
             this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(194, 27);
+            this.btnViewUser.Size = new System.Drawing.Size(219, 34);
             this.btnViewUser.TabIndex = 4;
             this.btnViewUser.Text = "Izmeni";
             this.btnViewUser.UseVisualStyleBackColor = true;
             // 
             // btnDeleteUser
             // 
-            this.btnDeleteUser.Location = new System.Drawing.Point(491, 313);
+            this.btnDeleteUser.Location = new System.Drawing.Point(552, 411);
             this.btnDeleteUser.Name = "btnDeleteUser";
-            this.btnDeleteUser.Size = new System.Drawing.Size(194, 27);
+            this.btnDeleteUser.Size = new System.Drawing.Size(219, 34);
             this.btnDeleteUser.TabIndex = 5;
             this.btnDeleteUser.Text = "Izbrisi";
             this.btnDeleteUser.UseVisualStyleBackColor = true;
             // 
             // btnAddNewUser
             // 
-            this.btnAddNewUser.Location = new System.Drawing.Point(491, 346);
+            this.btnAddNewUser.Location = new System.Drawing.Point(552, 454);
             this.btnAddNewUser.Name = "btnAddNewUser";
-            this.btnAddNewUser.Size = new System.Drawing.Size(194, 27);
+            this.btnAddNewUser.Size = new System.Drawing.Size(219, 34);
             this.btnAddNewUser.TabIndex = 6;
             this.btnAddNewUser.Text = "Dodaj Korisnika";
             this.btnAddNewUser.UseVisualStyleBackColor = true;
             // 
             // btnAddWriter
             // 
-            this.btnAddWriter.Location = new System.Drawing.Point(719, 346);
+            this.btnAddWriter.Location = new System.Drawing.Point(809, 454);
             this.btnAddWriter.Name = "btnAddWriter";
-            this.btnAddWriter.Size = new System.Drawing.Size(194, 27);
+            this.btnAddWriter.Size = new System.Drawing.Size(219, 34);
             this.btnAddWriter.TabIndex = 7;
             this.btnAddWriter.Text = "Dodaj Pisca";
             this.btnAddWriter.UseVisualStyleBackColor = true;
             // 
             // btnAddConfirmation
             // 
-            this.btnAddConfirmation.Location = new System.Drawing.Point(234, 346);
+            this.btnAddConfirmation.Location = new System.Drawing.Point(264, 454);
             this.btnAddConfirmation.Name = "btnAddConfirmation";
-            this.btnAddConfirmation.Size = new System.Drawing.Size(171, 27);
+            this.btnAddConfirmation.Size = new System.Drawing.Size(192, 34);
             this.btnAddConfirmation.TabIndex = 8;
             this.btnAddConfirmation.Text = "Napravi Potvrdu";
             this.btnAddConfirmation.UseVisualStyleBackColor = true;
             // 
             // txtSearchTerm
             // 
-            this.txtSearchTerm.Location = new System.Drawing.Point(719, 41);
+            this.txtSearchTerm.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtSearchTerm.Location = new System.Drawing.Point(809, 54);
             this.txtSearchTerm.Name = "txtSearchTerm";
-            this.txtSearchTerm.Size = new System.Drawing.Size(194, 22);
+            this.txtSearchTerm.Size = new System.Drawing.Size(217, 29);
             this.txtSearchTerm.TabIndex = 10;
             // 
             // lstUsers
             // 
+            this.lstUsers.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.lstUsers.FormattingEnabled = true;
-            this.lstUsers.ItemHeight = 16;
-            this.lstUsers.Location = new System.Drawing.Point(491, 110);
+            this.lstUsers.ItemHeight = 21;
+            this.lstUsers.Location = new System.Drawing.Point(552, 144);
             this.lstUsers.Name = "lstUsers";
-            this.lstUsers.Size = new System.Drawing.Size(194, 164);
+            this.lstUsers.Size = new System.Drawing.Size(217, 214);
             this.lstUsers.TabIndex = 12;
             // 
             // lstBooks
             // 
+            this.lstBooks.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.lstBooks.FormattingEnabled = true;
-            this.lstBooks.ItemHeight = 16;
-            this.lstBooks.Location = new System.Drawing.Point(719, 110);
+            this.lstBooks.ItemHeight = 21;
+            this.lstBooks.Location = new System.Drawing.Point(809, 144);
             this.lstBooks.Name = "lstBooks";
-            this.lstBooks.Size = new System.Drawing.Size(194, 164);
+            this.lstBooks.Size = new System.Drawing.Size(217, 214);
             this.lstBooks.TabIndex = 13;
             // 
             // btnViewBook
             // 
-            this.btnViewBook.Location = new System.Drawing.Point(719, 280);
+            this.btnViewBook.Location = new System.Drawing.Point(809, 368);
             this.btnViewBook.Name = "btnViewBook";
-            this.btnViewBook.Size = new System.Drawing.Size(194, 27);
+            this.btnViewBook.Size = new System.Drawing.Size(219, 34);
             this.btnViewBook.TabIndex = 14;
             this.btnViewBook.Text = "Izmeni";
             this.btnViewBook.UseVisualStyleBackColor = true;
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(719, 313);
+            this.btnAddBook.Location = new System.Drawing.Point(809, 411);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(194, 27);
+            this.btnAddBook.Size = new System.Drawing.Size(219, 34);
             this.btnAddBook.TabIndex = 15;
             this.btnAddBook.Text = "Dodaj Knjigu";
             this.btnAddBook.UseVisualStyleBackColor = true;
             // 
             // txtSearchUsers
             // 
-            this.txtSearchUsers.Location = new System.Drawing.Point(491, 41);
+            this.txtSearchUsers.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtSearchUsers.Location = new System.Drawing.Point(552, 54);
             this.txtSearchUsers.Name = "txtSearchUsers";
-            this.txtSearchUsers.Size = new System.Drawing.Size(194, 22);
+            this.txtSearchUsers.Size = new System.Drawing.Size(217, 29);
             this.txtSearchUsers.TabIndex = 16;
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(719, 488);
+            this.btnLogout.Location = new System.Drawing.Point(809, 640);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(194, 27);
+            this.btnLogout.Size = new System.Drawing.Size(219, 34);
             this.btnLogout.TabIndex = 17;
             this.btnLogout.Text = "Izloguj se";
             this.btnLogout.UseVisualStyleBackColor = true;
@@ -190,61 +194,62 @@ namespace Server
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(491, 88);
+            this.label2.Location = new System.Drawing.Point(552, 116);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 16);
+            this.label2.Size = new System.Drawing.Size(79, 21);
             this.label2.TabIndex = 18;
             this.label2.Text = "Korisnici:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(719, 87);
+            this.label3.Location = new System.Drawing.Point(809, 114);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 16);
+            this.label3.Size = new System.Drawing.Size(62, 21);
             this.label3.TabIndex = 19;
             this.label3.Text = "Knjige:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 43);
+            this.label4.Location = new System.Drawing.Point(17, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 16);
+            this.label4.Size = new System.Drawing.Size(180, 21);
             this.label4.TabIndex = 20;
             this.label4.Text = "Ulogovani Bibliotekar:";
             // 
             // txtLoggedIn
             // 
-            this.txtLoggedIn.Location = new System.Drawing.Point(160, 40);
+            this.txtLoggedIn.Location = new System.Drawing.Point(180, 52);
             this.txtLoggedIn.Name = "txtLoggedIn";
             this.txtLoggedIn.ReadOnly = true;
-            this.txtLoggedIn.Size = new System.Drawing.Size(194, 22);
+            this.txtLoggedIn.Size = new System.Drawing.Size(217, 29);
             this.txtLoggedIn.TabIndex = 21;
             // 
             // lstConfirmations
             // 
+            this.lstConfirmations.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.lstConfirmations.HideSelection = false;
-            this.lstConfirmations.Location = new System.Drawing.Point(18, 110);
+            this.lstConfirmations.Location = new System.Drawing.Point(21, 144);
             this.lstConfirmations.Name = "lstConfirmations";
-            this.lstConfirmations.Size = new System.Drawing.Size(387, 230);
+            this.lstConfirmations.Size = new System.Drawing.Size(435, 301);
             this.lstConfirmations.TabIndex = 22;
             this.lstConfirmations.UseCompatibleStateImageBehavior = false;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 88);
+            this.label5.Location = new System.Drawing.Point(17, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 16);
+            this.label5.Size = new System.Drawing.Size(78, 21);
             this.label5.TabIndex = 23;
             this.label5.Text = "Potvrde:";
             // 
             // btnViewConfirmation
             // 
-            this.btnViewConfirmation.Location = new System.Drawing.Point(18, 346);
+            this.btnViewConfirmation.Location = new System.Drawing.Point(21, 454);
             this.btnViewConfirmation.Name = "btnViewConfirmation";
-            this.btnViewConfirmation.Size = new System.Drawing.Size(171, 27);
+            this.btnViewConfirmation.Size = new System.Drawing.Size(192, 34);
             this.btnViewConfirmation.TabIndex = 24;
             this.btnViewConfirmation.Text = "Izmeni";
             this.btnViewConfirmation.UseVisualStyleBackColor = true;
@@ -252,26 +257,27 @@ namespace Server
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(488, 22);
+            this.label6.Location = new System.Drawing.Point(549, 28);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 16);
+            this.label6.Size = new System.Drawing.Size(79, 21);
             this.label6.TabIndex = 25;
             this.label6.Text = "Pretrazi:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(716, 22);
+            this.label7.Location = new System.Drawing.Point(806, 28);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 16);
+            this.label7.Size = new System.Drawing.Size(79, 21);
             this.label7.TabIndex = 26;
             this.label7.Text = "Pretrazi:";
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(983, 543);
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(1106, 712);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnViewConfirmation);
@@ -296,6 +302,8 @@ namespace Server
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
+            this.Font = new System.Drawing.Font("Komika Axis", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FrmMain";
             this.Text = "Biblioteka";
             this.ResumeLayout(false);

@@ -16,8 +16,17 @@ namespace Client
         public FrmMain()
         {
             InitializeComponent();
-            btnLogout.Click += MainGuiController.Instance.Logout;
+            btnAddNewUser.Click += MainGuiController.Instance.MakeNewUser;
+            btnAddWriter.Click += MainGuiController.Instance.MakeNewWriter;
+            btnAddBook.Click += MainGuiController.Instance.MakeNewBook;
+            btnDeleteUser.Click += MainGuiController.Instance.DeleteUser;
+            btnAddConfirmation.Click += MainGuiController.Instance.AddConfirmation;
+            btnViewUser.Click += MainGuiController.Instance.ViewUser;
+            btnViewBook.Click += MainGuiController.Instance.ViewBook;
             txtSearchTerm.TextChanged += MainGuiController.Instance.Search;
+            txtSearchUsers.TextChanged += MainGuiController.Instance.SearchUsers;
+            btnViewConfirmation.Click += MainGuiController.Instance.ViewConfirmation;
+            btnLogout.Click += MainGuiController.Instance.Logout;
             this.FormClosed += MainGuiController.Instance.FormClosed;
         }
     }

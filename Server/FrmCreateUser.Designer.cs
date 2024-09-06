@@ -43,37 +43,46 @@ namespace Server
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(145, 51);
+            this.txtName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtName.Location = new System.Drawing.Point(163, 67);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(203, 22);
+            this.txtName.Size = new System.Drawing.Size(228, 29);
             this.txtName.TabIndex = 0;
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(145, 98);
+            this.txtSurname.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtSurname.Location = new System.Drawing.Point(163, 129);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(203, 22);
+            this.txtSurname.Size = new System.Drawing.Size(228, 29);
             this.txtSurname.TabIndex = 1;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(145, 143);
+            this.txtUsername.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtUsername.Location = new System.Drawing.Point(163, 188);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(203, 22);
+            this.txtUsername.Size = new System.Drawing.Size(228, 29);
             this.txtUsername.TabIndex = 2;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(145, 194);
+            this.txtPassword.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtPassword.Location = new System.Drawing.Point(163, 255);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(203, 22);
+            this.txtPassword.Size = new System.Drawing.Size(228, 29);
             this.txtPassword.TabIndex = 3;
             // 
             // btnAddUser
             // 
-            this.btnAddUser.Location = new System.Drawing.Point(145, 245);
+            this.btnAddUser.Location = new System.Drawing.Point(163, 322);
+            this.btnAddUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(203, 26);
+            this.btnAddUser.Size = new System.Drawing.Size(228, 34);
             this.btnAddUser.TabIndex = 4;
             this.btnAddUser.Text = "Dodaj";
             this.btnAddUser.UseVisualStyleBackColor = true;
@@ -81,44 +90,45 @@ namespace Server
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(107, 54);
+            this.label1.Location = new System.Drawing.Point(120, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 16);
+            this.label1.Size = new System.Drawing.Size(39, 21);
             this.label1.TabIndex = 5;
             this.label1.Text = "Ime:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(80, 101);
+            this.label2.Location = new System.Drawing.Point(90, 133);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 16);
+            this.label2.Size = new System.Drawing.Size(72, 21);
             this.label2.TabIndex = 6;
             this.label2.Text = "Prezime:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(42, 146);
+            this.label3.Location = new System.Drawing.Point(47, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 16);
+            this.label3.Size = new System.Drawing.Size(122, 21);
             this.label3.TabIndex = 7;
             this.label3.Text = "Korisnicko Ime:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(102, 197);
+            this.label4.Location = new System.Drawing.Point(115, 259);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 16);
+            this.label4.Size = new System.Drawing.Size(52, 21);
             this.label4.TabIndex = 8;
             this.label4.Text = "Sifra:";
             // 
             // FrmCreateUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 317);
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(567, 416);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -128,6 +138,9 @@ namespace Server
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtName);
+            this.Font = new System.Drawing.Font("Komika Axis", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmCreateUser";
             this.Text = "Dodaj Korisnika";
             this.ResumeLayout(false);

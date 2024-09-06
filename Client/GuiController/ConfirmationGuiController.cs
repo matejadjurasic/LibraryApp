@@ -1,4 +1,5 @@
-﻿using Common.Domain;
+﻿using Common.Communication;
+using Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Server.GuiControllers
+namespace Client.GuiController
 {
     public class ConfirmationGuiController
     {
@@ -40,7 +41,11 @@ namespace Server.GuiControllers
             frmConfirmation.LstItems.View = View.Details;
             frmConfirmation.LstItems.Columns.Add("Knjiga", 100, HorizontalAlignment.Left);
             frmConfirmation.LstItems.Columns.Add("Kolicina", 70, HorizontalAlignment.Left);
-            items = Controller.Instance.GetConfirmationItems(confirmation.PotvrdaId);
+            Response r = Communication.Instance.GetConfirmationItems(confirmation.PotvrdaId);
+            if (r.Exception == null && r.Result != null)
+            {
+                items = (List<StavkaPotvrde>)r.Result;
+            }
             confirmation.Stavke = items;
             RefreshItemTable();
             frmConfirmation.ShowDialog();
@@ -64,17 +69,19 @@ namespace Server.GuiControllers
             if(frmConfirmation.CboxStatus.Checked)
             {
                 confirmation.Returned = true;
-                if (Controller.Instance.UpdateConfirmation(confirmation))
+                Response r = Communication.Instance.UpdateConfirmation(confirmation);
+                if (r.Exception == null && (bool)r.Result == true)
                 {
-                    MessageBox.Show("Uspjeh");
+                    MessageBox.Show("Potvrda uspesno azurirana", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MainGuiController.Instance.RefreshConfirmationTable();
                     MainGuiController.Instance.RefreshBookTable();
                     frmConfirmation.Dispose();
                 }
                 else
                 {
-                    MessageBox.Show("Greska");
+                    MessageBox.Show("Greska pri azuriranju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }  
         }
     }

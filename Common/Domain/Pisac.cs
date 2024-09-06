@@ -30,6 +30,11 @@ namespace Common.Domain
             return 2131893778 + PisacId.GetHashCode();
         }
 
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
+
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             List<IEntity> pisci = new List<IEntity>();

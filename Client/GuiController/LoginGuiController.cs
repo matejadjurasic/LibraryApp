@@ -42,29 +42,52 @@ namespace Client.GuiController
             }catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                MessageBox.Show("Can't connect to server");
+                MessageBox.Show("Nemoguce povezivanje sa serverom", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
         }
 
         public void Login(object sender, EventArgs e)
         {
-            Korisnik k = new Korisnik
+            if (frmLogin.CheckAdmin.Checked)
             {
-                KorisnickoIme = frmLogin.TxtUsername.Text,
-                Sifra = frmLogin.TxtPassword.Text
-            };
-            Response r = Communication.Instance.Login(k);
-            if(r.Exception == null && r.Result != null)
-            {
-                frmLogin.Visible = false;
-                MainGuiController.Instance.ShowFrmMain((Korisnik)r.Result);
+                Bibliotekar b = new Bibliotekar
+                {
+                    KorisnickoIme = frmLogin.TxtUsername.Text,
+                    Sifra = frmLogin.TxtPassword.Text
+                };
+                Response r = Communication.Instance.LoginB(b);
+                if (r.Exception == null && r.Result != null)
+                {
+                    frmLogin.Visible = false;
+                    MainGuiController.Instance.ShowFrmMain((Bibliotekar)r.Result);
 
+                }
+                else
+                {
+                    MessageBox.Show("Greska pri autentikaciji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Error logging in");
+                Korisnik k = new Korisnik
+                {
+                    KorisnickoIme = frmLogin.TxtUsername.Text,
+                    Sifra = frmLogin.TxtPassword.Text
+                };
+                Response r = Communication.Instance.Login(k);
+                if (r.Exception == null && r.Result != null)
+                {
+                    frmLogin.Visible = false;
+                    UserMainGuiController.Instance.ShowFrmMain((Korisnik)r.Result);
+
+                }
+                else
+                {
+                    MessageBox.Show("Greska pri autentikaciji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+            
         }
 
         internal void SetVisible()

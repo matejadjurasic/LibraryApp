@@ -1,4 +1,5 @@
-﻿using Common.Domain;
+﻿using Common.Communication;
+using Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Server.GuiControllers
+namespace Client.GuiController
 {
     public class CreateBookGuiController
     {
@@ -26,7 +27,11 @@ namespace Server.GuiControllers
         {
             frmCreateBook = new FrmCreateBook();
             frmCreateBook.AutoSize = true;
-            frmCreateBook.CboxWriters.DataSource = Controller.Instance.GetAllAuthors();
+            Response r = Communication.Instance.GetAllAuthors();
+            if (r.Exception == null && r.Result != null)
+            {
+                frmCreateBook.CboxWriters.DataSource = (List<Pisac>)r.Result;
+            }
             frmCreateBook.ShowDialog();
         }
 
@@ -36,7 +41,7 @@ namespace Server.GuiControllers
             {
                 if(writers.Contains(frmCreateBook.CboxWriters.SelectedItem as Pisac))
                 {
-                    MessageBox.Show("Pisac vec dodat");
+                    MessageBox.Show("Pisac vec dodat", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -71,18 +76,25 @@ namespace Server.GuiControllers
                 Pisci = writers
             };
 
-
-            if(Controller.Instance.SaveBook(book))
+            if ((int)frmCreateBook.NumAvailableCopies.Value > (int)frmCreateBook.NumCopies.Value)
             {
-                MessageBox.Show("Uspjesno dodata knjiga");
+                MessageBox.Show("Broj dostupnih kopija mora biti manji ili jednak od ukupnih kopija", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Response r = Communication.Instance.AddBook(book);
+            if (r.Exception == null && (bool)r.Result == true)
+            {
+                MessageBox.Show("Knjiga uspesno dodata", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 writers.Clear();
                 MainGuiController.Instance.RefreshBookTable();
                 frmCreateBook.Dispose();
             }
             else
             {
-                MessageBox.Show("Greska pri dodavanju");
+                MessageBox.Show("Greska pri dodavanju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

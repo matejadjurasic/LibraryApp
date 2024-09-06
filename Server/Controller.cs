@@ -15,6 +15,7 @@ namespace Server
         private Broker broker;
         private List<ClientHandler> clients = new List<ClientHandler>();  
         private List<Korisnik> loggedInUsers = new List<Korisnik>();
+        private List<Bibliotekar> loggedInAdmins = new List<Bibliotekar>();
 
         private static Controller instance;
         public static Controller Instance
@@ -28,6 +29,7 @@ namespace Server
 
         public List<ClientHandler> Clients { get => clients; set => clients = value; }
         public List<Korisnik> LoggedInUsers { get => loggedInUsers; set => loggedInUsers = value; }
+        public List<Bibliotekar> LoggedInAdmins { get => loggedInAdmins; set => loggedInAdmins = value; }
 
         private Controller() { broker = new Broker(); }
         
@@ -46,6 +48,10 @@ namespace Server
         {
             NadjiBibliotekaraSO so = new NadjiBibliotekaraSO(bibliotekar);
             so.ExecuteTemplate();
+            if (so.Result != null && !loggedInAdmins.Contains(so.Result))
+            {
+                loggedInAdmins.Add(so.Result);
+            }
             return so.Result;
         }
 
@@ -70,9 +76,9 @@ namespace Server
             return so.Result;
         }
 
-        public bool DeleteUser(Korisnik korisnik, int korisnikId)
+        public bool DeleteUser(Korisnik korisnik)
         {
-            ObrisiKorisnikaSO so = new ObrisiKorisnikaSO(korisnik, korisnikId);
+            ObrisiKorisnikaSO so = new ObrisiKorisnikaSO(korisnik, korisnik.KorisnikId);
             so.ExecuteTemplate();
             return so.Result;
         }
@@ -84,9 +90,9 @@ namespace Server
             return so.Result;
         }
 
-        public bool UpdateBook(Knjiga knjiga, int knjigaId)
+        public bool UpdateBook(Knjiga knjiga)
         {
-            ZapamtiKnjiguSO so = new ZapamtiKnjiguSO(knjiga, knjigaId);
+            ZapamtiKnjiguSO so = new ZapamtiKnjiguSO(knjiga, knjiga.KnjigaId);
             so.ExecuteTemplate();
             return so.Result;
         }
@@ -161,9 +167,9 @@ namespace Server
             return so.Result;
         }
 
-        public bool UpdateConfirmation(Potvrda potvrda, int potvrdaId)
+        public bool UpdateConfirmation(Potvrda potvrda)
         {
-            ZapamtiPotvrduSO so = new ZapamtiPotvrduSO(potvrda, potvrdaId);
+            ZapamtiPotvrduSO so = new ZapamtiPotvrduSO(potvrda, potvrda.PotvrdaId);
             so.ExecuteTemplate();
             return so.Result;
         }

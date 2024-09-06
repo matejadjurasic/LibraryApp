@@ -1,4 +1,5 @@
-﻿using Common.Domain;
+﻿using Common.Communication;
+using Common.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Server.GuiControllers
+namespace Client.GuiController
 {
     public class BookGuiController
     {
@@ -24,7 +25,11 @@ namespace Server.GuiControllers
 
         internal void ShowFrmBook(Knjiga book)
         {
-            this.book = Controller.Instance.GetBook(book.KnjigaId);
+            Response r = Communication.Instance.GetBook(book.KnjigaId);
+            if (r.Exception == null && r.Result != null)
+            {
+                this.book = (Knjiga)r.Result;
+            }
             frmBook = new FrmBook();
             frmBook.AutoSize = true;
             frmBook.TxtName.Text = book.Ime;
@@ -33,9 +38,13 @@ namespace Server.GuiControllers
             frmBook.NumAvailableCopies.ReadOnly = true;
             frmBook.NumCopies.Value = book.BrojKopija;
             frmBook.NumCopies.ReadOnly = true;
-            frmBook.CboxWriters.DataSource = Controller.Instance.GetAllAuthors();
-            frmBook.CboxWriters.DisplayMember = "Ime";
-            RefreshWriters();
+            Response r2 = Communication.Instance.GetAllAuthors();
+            if (r2.Exception == null && r2.Result != null)
+            {
+                frmBook.CboxWriters.DataSource = (List<Pisac>)r2.Result;
+                frmBook.CboxWriters.DisplayMember = "Ime";
+                RefreshWriters();
+            }
             frmBook.ShowDialog();
         }
 
@@ -67,7 +76,7 @@ namespace Server.GuiControllers
                 }
                 else
                 {
-                    MessageBox.Show("This writer is already associated with the book.", "Duplicate Writer", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vec ste dodali ovog pisca.", "Duplikat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -95,16 +104,23 @@ namespace Server.GuiControllers
             book.BrojKopija = (int)frmBook.NumCopies.Value;
             book.BrojDostupnihKopija = (int)frmBook.NumAvailableCopies.Value;
 
-            if (Controller.Instance.UpdateBook(book))
+            if((int)frmBook.NumAvailableCopies.Value > (int)frmBook.NumCopies.Value)
             {
-                MessageBox.Show("Book updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Broj dostupnih kopija mora biti manji ili jednak od ukupnih kopija", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Response r = Communication.Instance.UpdateBook(book);
+            if (r.Exception == null && (bool)r.Result == true)
+            {
+                MessageBox.Show("Knjiga uspesno azurirana", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MainGuiController.Instance.RefreshBookTable();
                 book.Pisci.Clear();
                 frmBook.Dispose();
             }
             else
             {
-                MessageBox.Show("Error updating book.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Greska pri azuriranju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

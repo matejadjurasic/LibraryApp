@@ -107,7 +107,7 @@ namespace Server.GuiControllers
             if(frmMain.LstUsers.SelectedIndex != -1)
             {
                 Korisnik user = frmMain.LstUsers.SelectedItem as Korisnik;
-                if (Controller.Instance.DeleteUser(user,user.KorisnikId))
+                if (Controller.Instance.DeleteUser(user))
                 {
                     MessageBox.Show("Korisnik izbrisan");
                     RefreshUserTable();

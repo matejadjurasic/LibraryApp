@@ -47,65 +47,78 @@ namespace Server
             // 
             // numCopies
             // 
-            this.numCopies.Location = new System.Drawing.Point(169, 104);
+            this.numCopies.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.numCopies.Location = new System.Drawing.Point(190, 136);
+            this.numCopies.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numCopies.Name = "numCopies";
-            this.numCopies.Size = new System.Drawing.Size(162, 22);
+            this.numCopies.Size = new System.Drawing.Size(182, 29);
             this.numCopies.TabIndex = 0;
             // 
             // numAvailableCopies
             // 
-            this.numAvailableCopies.Location = new System.Drawing.Point(169, 175);
+            this.numAvailableCopies.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.numAvailableCopies.Location = new System.Drawing.Point(190, 230);
+            this.numAvailableCopies.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.numAvailableCopies.Name = "numAvailableCopies";
-            this.numAvailableCopies.Size = new System.Drawing.Size(162, 22);
+            this.numAvailableCopies.Size = new System.Drawing.Size(182, 29);
             this.numAvailableCopies.TabIndex = 1;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(169, 33);
+            this.txtName.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtName.Location = new System.Drawing.Point(190, 43);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(162, 22);
+            this.txtName.Size = new System.Drawing.Size(182, 29);
             this.txtName.TabIndex = 2;
             // 
             // lstWriters
             // 
+            this.lstWriters.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.lstWriters.FormattingEnabled = true;
-            this.lstWriters.ItemHeight = 16;
-            this.lstWriters.Location = new System.Drawing.Point(375, 33);
+            this.lstWriters.ItemHeight = 21;
+            this.lstWriters.Location = new System.Drawing.Point(422, 43);
+            this.lstWriters.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstWriters.Name = "lstWriters";
-            this.lstWriters.Size = new System.Drawing.Size(171, 164);
+            this.lstWriters.Size = new System.Drawing.Size(192, 214);
             this.lstWriters.TabIndex = 3;
             // 
             // btnAddBook
             // 
-            this.btnAddBook.Location = new System.Drawing.Point(31, 263);
+            this.btnAddBook.Location = new System.Drawing.Point(35, 345);
+            this.btnAddBook.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddBook.Name = "btnAddBook";
-            this.btnAddBook.Size = new System.Drawing.Size(300, 24);
+            this.btnAddBook.Size = new System.Drawing.Size(338, 32);
             this.btnAddBook.TabIndex = 5;
             this.btnAddBook.Text = "Dodaj Knjigu";
             this.btnAddBook.UseVisualStyleBackColor = true;
             // 
             // cboxWriters
             // 
+            this.cboxWriters.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.cboxWriters.FormattingEnabled = true;
-            this.cboxWriters.Location = new System.Drawing.Point(375, 203);
+            this.cboxWriters.Location = new System.Drawing.Point(422, 266);
+            this.cboxWriters.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cboxWriters.Name = "cboxWriters";
-            this.cboxWriters.Size = new System.Drawing.Size(171, 24);
+            this.cboxWriters.Size = new System.Drawing.Size(192, 29);
             this.cboxWriters.TabIndex = 6;
             // 
             // btnAddWriter
             // 
-            this.btnAddWriter.Location = new System.Drawing.Point(375, 233);
+            this.btnAddWriter.Location = new System.Drawing.Point(422, 306);
+            this.btnAddWriter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddWriter.Name = "btnAddWriter";
-            this.btnAddWriter.Size = new System.Drawing.Size(171, 24);
+            this.btnAddWriter.Size = new System.Drawing.Size(192, 32);
             this.btnAddWriter.TabIndex = 7;
             this.btnAddWriter.Text = "Dodaj Pisca";
             this.btnAddWriter.UseVisualStyleBackColor = true;
             // 
             // btnDeleteWriter
             // 
-            this.btnDeleteWriter.Location = new System.Drawing.Point(375, 263);
+            this.btnDeleteWriter.Location = new System.Drawing.Point(422, 345);
+            this.btnDeleteWriter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteWriter.Name = "btnDeleteWriter";
-            this.btnDeleteWriter.Size = new System.Drawing.Size(171, 24);
+            this.btnDeleteWriter.Size = new System.Drawing.Size(192, 32);
             this.btnDeleteWriter.TabIndex = 8;
             this.btnDeleteWriter.Text = "Izbrisi Pisca";
             this.btnDeleteWriter.UseVisualStyleBackColor = true;
@@ -113,35 +126,36 @@ namespace Server
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(131, 36);
+            this.label1.Location = new System.Drawing.Point(147, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 16);
+            this.label1.Size = new System.Drawing.Size(39, 21);
             this.label1.TabIndex = 9;
             this.label1.Text = "Ime:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(88, 106);
+            this.label2.Location = new System.Drawing.Point(99, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 16);
+            this.label2.Size = new System.Drawing.Size(103, 21);
             this.label2.TabIndex = 10;
             this.label2.Text = "Broj Kopija:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 177);
+            this.label3.Location = new System.Drawing.Point(32, 232);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(135, 16);
+            this.label3.Size = new System.Drawing.Size(179, 21);
             this.label3.TabIndex = 11;
             this.label3.Text = "Broj Dostupnih Kopija";
             // 
             // FrmCreateBook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 309);
+            this.BackColor = System.Drawing.Color.MintCream;
+            this.ClientSize = new System.Drawing.Size(649, 406);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -153,6 +167,9 @@ namespace Server
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.numAvailableCopies);
             this.Controls.Add(this.numCopies);
+            this.Font = new System.Drawing.Font("Komika Title - Axis", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmCreateBook";
             this.Text = "Dodaj Knjigu";
             ((System.ComponentModel.ISupportInitialize)(this.numCopies)).EndInit();
