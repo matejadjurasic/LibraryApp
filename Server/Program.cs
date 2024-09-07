@@ -15,7 +15,8 @@ namespace Server
         [STAThread]
         static void Main()
         {
-            LoginGuiController.Instance.ShowFrmLogin();
+            ServerGuiController.Instance.ShowFrmServer();
+            //LoginGuiController.Instance.ShowFrmLogin();
         }
     }
 }

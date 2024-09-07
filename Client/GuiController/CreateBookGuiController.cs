@@ -85,14 +85,14 @@ namespace Client.GuiController
             Response r = Communication.Instance.AddBook(book);
             if (r.Exception == null && (bool)r.Result == true)
             {
-                MessageBox.Show("Knjiga uspesno dodata", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sistem je zapamtio knjigu", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 writers.Clear();
                 MainGuiController.Instance.RefreshBookTable();
                 frmCreateBook.Dispose();
             }
             else
             {
-                MessageBox.Show("Greska pri dodavanju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem ne moze da zapamti knjigu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

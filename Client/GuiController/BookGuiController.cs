@@ -42,9 +42,9 @@ namespace Client.GuiController
             if (r2.Exception == null && r2.Result != null)
             {
                 frmBook.CboxWriters.DataSource = (List<Pisac>)r2.Result;
-                frmBook.CboxWriters.DisplayMember = "Ime";
                 RefreshWriters();
             }
+            MessageBox.Show("Sistem je ucitao podatke o izabranoј knjizi", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmBook.ShowDialog();
         }
 
@@ -95,7 +95,6 @@ namespace Client.GuiController
         {
             frmBook.LstWriters.DataSource = null;
             frmBook.LstWriters.DataSource = book.Pisci;
-            frmBook.LstWriters.DisplayMember = "Ime";
         }
 
         internal void UpdateBook(object sender, EventArgs e)
@@ -113,14 +112,14 @@ namespace Client.GuiController
             Response r = Communication.Instance.UpdateBook(book);
             if (r.Exception == null && (bool)r.Result == true)
             {
-                MessageBox.Show("Knjiga uspesno azurirana", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sistem je zapamtio nove podatke o knjizi", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MainGuiController.Instance.RefreshBookTable();
                 book.Pisci.Clear();
                 frmBook.Dispose();
             }
             else
             {
-                MessageBox.Show("Greska pri azuriranju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem ne moze da zapamti knjigu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

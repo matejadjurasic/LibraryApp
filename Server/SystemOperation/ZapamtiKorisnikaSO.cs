@@ -21,7 +21,7 @@ namespace Server.SystemOperation
         }
         protected override void ExecuteConcreteOperation()
         {
-            Result = broker.UpdateEntity(korisnik,korisnikId);
+            Result = broker.UpdateEntity(korisnik);
         }
     }
 }

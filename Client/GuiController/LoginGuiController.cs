@@ -59,13 +59,14 @@ namespace Client.GuiController
                 Response r = Communication.Instance.LoginB(b);
                 if (r.Exception == null && r.Result != null)
                 {
+                    MessageBox.Show("Prijavljeni ste", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmLogin.Visible = false;
                     MainGuiController.Instance.ShowFrmMain((Bibliotekar)r.Result);
 
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri autentikaciji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Neuspesna prijava, uneti su nepostojeci parametri", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -78,13 +79,14 @@ namespace Client.GuiController
                 Response r = Communication.Instance.Login(k);
                 if (r.Exception == null && r.Result != null)
                 {
+                    MessageBox.Show("Prijavljeni ste", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     frmLogin.Visible = false;
                     UserMainGuiController.Instance.ShowFrmMain((Korisnik)r.Result);
 
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri autentikaciji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Neuspesna prijava, uneti su nepostojeci parametri", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             
@@ -97,7 +99,7 @@ namespace Client.GuiController
 
         internal void FormClosed(object sender, FormClosedEventArgs e)
         {
-            Communication.Instance.Exit();
+            Communication.Instance.Disconnect();
             Application.Exit();
         }
     }

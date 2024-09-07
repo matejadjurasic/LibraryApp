@@ -23,6 +23,11 @@ namespace Common.Domain
 
         public string ColumnNames => "Ime,Prezime,KorisnickoIme,Sifra";
 
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
+
         public List<IEntity> GetReaderList(SqlDataReader reader)
         {
             List<IEntity> bibliotekari = new List<IEntity>();
@@ -47,6 +52,36 @@ namespace Common.Domain
                 throw ex;
             }
             return bibliotekari; 
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Bibliotekar bibliotekar &&
+                   BibliotekarId == bibliotekar.BibliotekarId;
+        }
+
+        public override int GetHashCode()
+        {
+            return -487828820 + BibliotekarId.GetHashCode();
+        }
+
+        public string GetUpdateValues()
+        {
+            return "Ime = @Ime, Prezime = @Prezime, KorisnickoIme = @KorisnickoIme, Sifra = @Sifra";
+        }
+
+        public string GetUpdateCondition()
+        {
+            return "BibliotekarId = @BibliotekarId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@Ime", Ime);
+            command.Parameters.AddWithValue("@Prezime", Prezime);
+            command.Parameters.AddWithValue("@KorisnickoIme", KorisnickoIme);
+            command.Parameters.AddWithValue("@Sifra", Sifra);
+            command.Parameters.AddWithValue("@BibliotekarId", BibliotekarId);
         }
     }
 }

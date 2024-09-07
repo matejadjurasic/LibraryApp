@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Configuration;
+using Server.GuiControllers;
 
 namespace Server
 {
@@ -22,7 +23,6 @@ namespace Server
 
         public void Start()
         {
-            // IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 9999);
             IPEndPoint endPoint = new IPEndPoint(IPAddress.Parse(ConfigurationManager.AppSettings["ip"]), int.Parse(ConfigurationManager.AppSettings["port"]));
 
             socket.Bind(endPoint);
@@ -55,11 +55,14 @@ namespace Server
 
         public void Stop()
         {
-            /*foreach (ClientHandler client in Controller.Instance.Clients)
+            foreach (ClientHandler client in Controller.Instance.Clients)
             {
-                client.SendShutdownNotification(); // Notify client to close
-            }*/
-
+                client.Disconnect();
+            }
+            Controller.Instance.LoggedInUsers.Clear();
+            ServerGuiController.Instance.RefreshUserTable();
+            Controller.Instance.LoggedInAdmins.Clear();
+            ServerGuiController.Instance.RefreshLibrarianTable();
             socket.Close();
         }
     }

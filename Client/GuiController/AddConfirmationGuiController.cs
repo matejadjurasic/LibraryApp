@@ -99,7 +99,7 @@ namespace Client.GuiController
             Response r = Communication.Instance.AddConfirmation(potvrda);
             if (r.Exception == null && (bool)r.Result == true)
             {
-                MessageBox.Show("Potvrda uspesno dodata", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sistem je zapamtio potvrdu", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmAddConfirmation.LstItems.Items.Clear();
                 MainGuiController.Instance.RefreshBookTable();
                 MainGuiController.Instance.RefreshConfirmationTable();
@@ -107,7 +107,7 @@ namespace Client.GuiController
             }
             else
             {
-                MessageBox.Show("Greska pri dodavanju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem ne moze da zapamti potvrdu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

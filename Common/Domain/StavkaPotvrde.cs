@@ -51,5 +51,23 @@ namespace Common.Domain
             return stavkePotvrde;
         }
 
+        public string GetUpdateValues()
+        {
+            return "KnjigaId = @KnjigaId, PotvrdaId = @PotvrdaId, Kolicina = @Kolicina";
+        }
+
+        public string GetUpdateCondition()
+        {
+            return "StavkaId = @StavkaId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@KnjigaId", Knjiga.KnjigaId);
+            command.Parameters.AddWithValue("@PotvrdaId", Potvrda.PotvrdaId);
+            command.Parameters.AddWithValue("@Kolicina", Kolicina);
+            command.Parameters.AddWithValue("@StavkaId", StavkaId);
+        }
+
     }
 }

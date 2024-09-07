@@ -27,7 +27,7 @@ namespace Server.SystemOperation
                 {
                     stavka.Potvrda.PotvrdaId = potvrdaId;
                     stavka.Knjiga.BrojDostupnihKopija -= stavka.Kolicina;
-                    broker.UpdateEntity(stavka.Knjiga, stavka.Knjiga.KnjigaId);
+                    broker.UpdateEntity(stavka.Knjiga);
                     broker.AddEntity(stavka);
                 }
                 Result = true;

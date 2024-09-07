@@ -22,11 +22,11 @@ namespace Server.SystemOperation
 
         protected override void ExecuteConcreteOperation()
         {
-            Result = broker.UpdateConfirmation(potvrda);
+            Result = broker.UpdateEntity(potvrda);
             foreach (StavkaPotvrde item in potvrda.Stavke)
             {
                 item.Knjiga.BrojDostupnihKopija += item.Kolicina;
-                broker.UpdateEntity(item.Knjiga, item.Knjiga.KnjigaId);
+                broker.UpdateEntity(item.Knjiga);
             }
         }
     }

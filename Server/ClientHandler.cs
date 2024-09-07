@@ -1,5 +1,6 @@
 ﻿using Common.Communication;
 using Common.Domain;
+using Server.GuiControllers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,11 +29,18 @@ namespace Server
 
         public void HandleRequest()
         {
-            while (isRunning)
+            while (true)
             {
                 Request req = (Request)receiver.Receive();
                 Response r = ProcessRequest(req);
                 sender.Send(r);
+                if (isRunning == false)
+                {
+                    Controller.Instance.Clients.Remove(this);
+                    receiver.Stop();
+                    socket.Close();
+                    break;
+                }
             }
         }
 
@@ -60,18 +68,18 @@ namespace Server
                         if(korisnik != null)
                         {
                             r.Result = Controller.Instance.LoggedInUsers.Remove((Korisnik)req.Argument);
+                            ServerGuiController.Instance.RefreshUserTable();
                             korisnik = null;
                         }
                         else
                         {
                             r.Result = Controller.Instance.LoggedInAdmins.Remove((Bibliotekar)req.Argument);
+                            ServerGuiController.Instance.RefreshLibrarianTable();
                             bibliotekar = null;
                         }
                         break;
                     case Operation.Exit:
-                        r.Result = Controller.Instance.Clients.Remove(this);
-                        isRunning = false;
-                        //socket.Close();
+                        isRunning = false;         
                         break;
                     case Operation.UpdateBook:
                         r.Result = Controller.Instance.UpdateBook((Knjiga)req.Argument);
@@ -132,28 +140,9 @@ namespace Server
             }
             return r;
         }
-
-        /// <summary>
-        /// ///////////////
-        /// </summary>
-        public void SendShutdownNotification()
+        public void Disconnect()
         {
-            try
-            {
-                Response shutdownResponse = new Response
-                {
-                    Result = "Server shutting down",
-                    Operation = Operation.Shutdown
-                };
-
-                sender.Send(shutdownResponse);
-                isRunning = false;
-                //socket.Close();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Error sending shutdown notification: " + ex.Message);
-            }
+            isRunning = false;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Client
             InitializeComponent();
             btnLogout.Click += UserMainGuiController.Instance.Logout;
             txtSearchTerm.TextChanged += UserMainGuiController.Instance.Search;
+            btnDetails.Click += UserMainGuiController.Instance.ViewBook;
             this.FormClosed += UserMainGuiController.Instance.FormClosed;
         }
     }

@@ -87,7 +87,7 @@ namespace Client.GuiController
             }
             else
             {
-                MessageBox.Show("Greska pri autentikaciji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Greska pri logoutu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,10 +101,33 @@ namespace Client.GuiController
             }
             else
             {
-                MessageBox.Show("Greska pri pretrazi", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                frmMain.TxtSearchTerm.Text = "";
+                MessageBox.Show("Sistem ne moze da nadje knjige po zadatoj vrednosti", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             RefreshBooks();
         }
+
+        internal void ViewBook(object sender, EventArgs e)
+        {
+            if (frmMain.LstBooks.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = frmMain.LstBooks.SelectedItems[0];
+                int bookId = int.Parse(selectedItem.Text);
+                Knjiga book = books.FirstOrDefault(c => c.KnjigaId == bookId);
+                if (book != null)
+                {
+                    try
+                    {
+                        UserBookGuiController.Instance.ShowFrmUserBook(book);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sistem ne moze da ucita knjigu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
+
 
         internal void FormClosed(object sender, FormClosedEventArgs e)
         {

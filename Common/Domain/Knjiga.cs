@@ -45,5 +45,23 @@ namespace Common.Domain {
             }
             return knjige;
         }
+
+        public string GetUpdateValues()
+        {
+            return "Ime = @Ime, BrojKopija = @BrojKopija, BrojDostupnihKopija = @BrojDostupnihKopija";
+        }
+
+        public string GetUpdateCondition()
+        {
+            return "KnjigaId = @KnjigaId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@Ime", Ime);
+            command.Parameters.AddWithValue("@BrojKopija", BrojKopija);
+            command.Parameters.AddWithValue("@BrojDostupnihKopija", BrojDostupnihKopija);
+            command.Parameters.AddWithValue("@KnjigaId", KnjigaId);
+        }
     }
 }

@@ -40,13 +40,14 @@ namespace Client.GuiController
             Response r = Communication.Instance.SaveWriter(writer);
             if (r.Exception == null && (bool)r.Result == true)
             {
-                MessageBox.Show("Pisac uspesno dodat", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sistem ne moze da zapamti pisca", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem je zapamtio pisca", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MainGuiController.Instance.RefreshUserTable();
                 frmCreateWriter.Dispose();
             }
             else
             {
-                MessageBox.Show("Greska pri dodavanju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem ne moze da zapamti pisca", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

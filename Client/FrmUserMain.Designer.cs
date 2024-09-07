@@ -37,6 +37,7 @@ namespace Client
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogout = new System.Windows.Forms.Button();
+            this.btnDetails = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstBooks
@@ -105,12 +106,22 @@ namespace Client
             this.btnLogout.Text = "Izloguj se";
             this.btnLogout.UseVisualStyleBackColor = true;
             // 
-            // FrmMain
+            // btnDetails
+            // 
+            this.btnDetails.Location = new System.Drawing.Point(71, 448);
+            this.btnDetails.Name = "btnDetails";
+            this.btnDetails.Size = new System.Drawing.Size(151, 33);
+            this.btnDetails.TabIndex = 8;
+            this.btnDetails.Text = "Detalji";
+            this.btnDetails.UseVisualStyleBackColor = true;
+            // 
+            // FrmUserMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(731, 496);
+            this.Controls.Add(this.btnDetails);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -121,7 +132,7 @@ namespace Client
             this.Font = new System.Drawing.Font("Komika Axis", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "FrmMain";
+            this.Name = "FrmUserMain";
             this.Text = "Biblioteka";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -137,6 +148,7 @@ namespace Client
         private Label label2;
         private Label label3;
         private Button btnLogout;
+        private Button btnDetails;
 
         public Label Label1 { get => label1; set => label1 = value; }
         public TextBox TxtLoggedIn { get => txtLoggedIn; set => txtLoggedIn = value; }

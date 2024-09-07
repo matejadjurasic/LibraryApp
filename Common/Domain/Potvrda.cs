@@ -57,5 +57,24 @@ namespace Common.Domain
             }
             return potvrde;
         }
+
+        public string GetUpdateValues()
+        {
+            return "DatumOd = @DatumOd, KorisnikId = @KorisnikId, BibliotekarId = @BibliotekarId, Returned = @Returned";
+        }
+
+        public string GetUpdateCondition()
+        {
+            return "PotvrdaId = @PotvrdaId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@DatumOd", DatumOd);
+            command.Parameters.AddWithValue("@KorisnikId", Korisnik.KorisnikId);
+            command.Parameters.AddWithValue("@BibliotekarId", Bibliotekar.BibliotekarId);
+            command.Parameters.AddWithValue("@Returned", Returned);
+            command.Parameters.AddWithValue("@PotvrdaId", PotvrdaId);
+        }
     }
 }

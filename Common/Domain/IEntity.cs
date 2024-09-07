@@ -13,6 +13,12 @@ namespace Common.Domain
         string Values { get; }
         string ColumnNames { get; }
 
+        string GetUpdateValues();
+
+        string GetUpdateCondition();
+
+        void SetUpdateParameters(SqlCommand command);
+
         List<IEntity> GetReaderList(SqlDataReader reader);
     }
 }

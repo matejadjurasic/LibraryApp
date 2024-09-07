@@ -59,5 +59,22 @@ namespace Common.Domain
             return pisci;
         }
 
+
+        public string GetUpdateValues()
+        {
+            return "Ime = @Ime, Prezime = @Prezime";
+        }
+
+        public string GetUpdateCondition()
+        {
+            return "PisacId = @PisacId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@Ime", Ime);
+            command.Parameters.AddWithValue("@Prezime", Prezime);
+            command.Parameters.AddWithValue("@PisacId", PisacId);
+        }
     }
 }

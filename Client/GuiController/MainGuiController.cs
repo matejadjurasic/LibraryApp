@@ -127,12 +127,12 @@ namespace Client.GuiController
                 Response r = Communication.Instance.DeleteUser(user);
                 if (r.Exception == null && (bool)r.Result == true)
                 {
-                    MessageBox.Show("Korisnik uspjesno obrisan", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sistem je obrisao korisnika", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshUserTable();
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri brisanju, postoje potvrde vezane za korisnika", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sistem ne moze da obrise korisnika", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             
@@ -154,7 +154,8 @@ namespace Client.GuiController
             }
             else
             {
-                MessageBox.Show("Greska pri trazenju knjiga", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                frmMain.TxtSearchTerm.Text = "";
+                MessageBox.Show("Sistem ne moze da nadje knjige po zadatoj vrednosti", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -169,7 +170,8 @@ namespace Client.GuiController
             }
             else
             {
-                MessageBox.Show("Greska pri trazenju korisnika", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                frmMain.TxtSearchUsers.Text = "";  
+                MessageBox.Show("Sistem ne moze da nadje korisnike po zadatoj vrednosti", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -177,7 +179,14 @@ namespace Client.GuiController
         {
             if(frmMain.LstUsers.SelectedIndex != -1)
             {
-                UserGuiController.Instance.ShowFrmUser(frmMain.LstUsers.SelectedItem as Korisnik);
+                try
+                {
+                    UserGuiController.Instance.ShowFrmUser(frmMain.LstUsers.SelectedItem as Korisnik);
+                }
+                catch
+                {
+                    MessageBox.Show("Sistem ne moze da ucita korisnika", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -185,7 +194,14 @@ namespace Client.GuiController
         {
             if(frmMain.LstBooks.SelectedIndex != -1)
             {
-                BookGuiController.Instance.ShowFrmBook(frmMain.LstBooks.SelectedItem as Knjiga);
+                try
+                {
+                    BookGuiController.Instance.ShowFrmBook(frmMain.LstBooks.SelectedItem as Knjiga);
+                }
+                catch
+                {
+                    MessageBox.Show("Sistem ne moze da ucita knjigu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -199,16 +215,31 @@ namespace Client.GuiController
                 Potvrda confirmation = confirmations.FirstOrDefault(c => c.PotvrdaId == confirmationId);
                 if (confirmation != null)
                 {
-                    ConfirmationGuiController.Instance.ShowFrmConfirmation(confirmation);
+                    try
+                    { 
+                        ConfirmationGuiController.Instance.ShowFrmConfirmation(confirmation);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Sistem ne moze da ucita potvrdu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         internal void Logout(object sender, EventArgs e)
         {
-            LoginGuiController.Instance.SetVisible();
-            isExitClose = false;
-            frmMain.Close();
+            Response r = Communication.Instance.Logout(bibliotekar);
+            if (r.Exception == null && (bool)r.Result == true)
+            {
+                LoginGuiController.Instance.SetVisible();
+                isExitClose = false;
+                frmMain.Close();
+            }
+            else
+            {
+                MessageBox.Show("Greska pri autentikaciji", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         internal void FormClosed(object sender, FormClosedEventArgs e)

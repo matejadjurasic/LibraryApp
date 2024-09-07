@@ -42,13 +42,13 @@ namespace Client.GuiController
             Response r = Communication.Instance.AddUser(korisnik);
             if (r.Exception == null && (bool)r.Result == true)
             {
-                MessageBox.Show("Korisnik uspesno dodat", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sistem je zapamtio korisnika", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MainGuiController.Instance.RefreshUserTable();
                 frmCreateUser.Dispose();
             }
             else
             {
-                MessageBox.Show("Greska pri dodavanju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem ne moze da zapamti korisnika", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

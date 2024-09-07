@@ -106,20 +106,15 @@ namespace DBBroker
             }
         }
 
-        public bool UpdateEntity(IEntity entity, int entityId)
+        public bool UpdateEntity(IEntity entity)
         {
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = $"UPDATE {entity.TableName} SET {GetUpdateSetClause(entity)} WHERE {entity.TableName}Id = {entityId}";
-            
-            foreach (var property in entity.GetType().GetProperties())
-            {
-                if (property.Name != $"{entity.TableName}Id" && property.Name != "Pisci" && property.Name != "Stavke")
-                {
-                    var value = property.GetValue(entity) ?? DBNull.Value;
-                    command.Parameters.AddWithValue($"@{property.Name}", value);
-                }
-            }
+            command.CommandText = $"UPDATE {entity.TableName} SET {entity.GetUpdateValues()} WHERE {entity.GetUpdateCondition()}";
+
+            entity.SetUpdateParameters(command);
+
             Debug.WriteLine(command.CommandText);
+
             try
             {
                 command.ExecuteNonQuery();
@@ -130,23 +125,6 @@ namespace DBBroker
                 Debug.WriteLine(ex.Message);
                 return false;
             }
-        }
-
-        private string GetUpdateSetClause(IEntity entity)
-        {
-            var setClauses = new List<string>();
-            var properties = entity.GetType().GetProperties();
-            var excludedProperties = new HashSet<string> { "TableName", "Values", "ColumnNames", $"{entity.TableName}Id", "Pisci","Stavke" };
-
-            foreach (var property in properties)
-            {
-                if (!excludedProperties.Contains(property.Name)) 
-                {
-                    setClauses.Add($"{property.Name} = @{property.Name}");
-                }
-            }
-
-            return string.Join(", ", setClauses);
         }
 
 
@@ -223,6 +201,10 @@ namespace DBBroker
             {
                 Debug.WriteLine(ex.Message);
                 throw ex;
+            }
+            if(entities.Count == 0)
+            {
+                return null;
             }
             return entities;
         }
@@ -325,33 +307,5 @@ namespace DBBroker
             return items;
         }
 
-        public bool UpdateConfirmation(Potvrda potvrda)
-        {
-            SqlCommand command = connection.CreateCommand();
-            command.CommandText = @"
-                UPDATE Potvrda 
-                SET DatumOd = @DatumOd, 
-                    KorisnikId = @KorisnikId, 
-                    BibliotekarId = @BibliotekarId,
-                    Returned = @Returned 
-                WHERE PotvrdaId = @PotvrdaId";
-
-            command.Parameters.AddWithValue("@DatumOd", potvrda.DatumOd);
-            command.Parameters.AddWithValue("@KorisnikId", potvrda.Korisnik.KorisnikId);
-            command.Parameters.AddWithValue("@BibliotekarId", potvrda.Bibliotekar.BibliotekarId);
-            command.Parameters.AddWithValue("@Returned", potvrda.Returned);
-            command.Parameters.AddWithValue("@PotvrdaId", potvrda.PotvrdaId);
-
-            try
-            {
-                command.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                return false;
-            }
-        }
     }
 }

@@ -65,5 +65,24 @@ namespace Common.Domain
             return korisnici;
         }
 
+        public string GetUpdateValues()
+        {
+            return "Ime = @Ime, Prezime = @Prezime, KorisnickoIme = @KorisnickoIme, Sifra = @Sifra";
+        }
+
+        public string GetUpdateCondition()
+        {
+            return "KorisnikId = @KorisnikId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@Ime", Ime);
+            command.Parameters.AddWithValue("@Prezime", Prezime);
+            command.Parameters.AddWithValue("@KorisnickoIme", KorisnickoIme);
+            command.Parameters.AddWithValue("@Sifra", Sifra);
+            command.Parameters.AddWithValue("@KorisnikId", KorisnikId);
+        }
+
     }
 }

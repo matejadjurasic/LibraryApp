@@ -1,5 +1,6 @@
 ﻿using Common.Domain;
 using DBBroker;
+using Server.GuiControllers;
 using Server.SystemOperation;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,7 @@ namespace Server
             if(so.Result != null && !loggedInUsers.Contains(so.Result))
             {
                 loggedInUsers.Add(so.Result);
+                ServerGuiController.Instance.RefreshUserTable();
             }
             return so.Result;
         }
@@ -51,6 +53,7 @@ namespace Server
             if (so.Result != null && !loggedInAdmins.Contains(so.Result))
             {
                 loggedInAdmins.Add(so.Result);
+                ServerGuiController.Instance.RefreshLibrarianTable();
             }
             return so.Result;
         }

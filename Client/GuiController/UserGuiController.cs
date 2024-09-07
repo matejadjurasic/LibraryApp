@@ -33,6 +33,7 @@ namespace Client.GuiController
             frmUser.TxtSurname.Text = user.Prezime;
             frmUser.TxtPassword.Text = user.Sifra;
             frmUser.TxtPassword.PasswordChar = '*';
+            MessageBox.Show("Sistem je ucitao podatke o izabranom korisniku", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmUser.ShowDialog();
         }
 
@@ -68,13 +69,13 @@ namespace Client.GuiController
             Response r = Communication.Instance.UpdateUser(updatedUser);
             if (r.Exception == null && (bool)r.Result == true)
             {
-                MessageBox.Show("Korisnik uspesno azuriran", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Sistem je zapamtio nove podatke o korisniku", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 MainGuiController.Instance.RefreshUserTable();
                 frmUser.Dispose();
             }
             else
             {
-                MessageBox.Show("Greska pri azuriranju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Sistem ne moze da zapamti korisnika", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

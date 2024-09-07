@@ -42,5 +42,21 @@ namespace Common.Domain
             }
             return knjigaPisacList;
         }
+
+        public string GetUpdateCondition()
+        {
+            return "KnjigaId = @KnjigaId, PisacId = @PisacId";
+        }
+
+        public string GetUpdateValues()
+        {
+            return "KnjigaId = @KnjigaId, PisacId = @PisacId";
+        }
+
+        public void SetUpdateParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@KnjigaId", Knjiga.KnjigaId);
+            command.Parameters.AddWithValue("@PisacId", Pisac.PisacId);
+        }
     }
 }

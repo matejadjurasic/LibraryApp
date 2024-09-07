@@ -39,7 +39,7 @@ namespace Client.GuiController
                 frmConfirmation.BtnUpdate.Enabled = false;
             }
             frmConfirmation.LstItems.View = View.Details;
-            frmConfirmation.LstItems.Columns.Add("Knjiga", 100, HorizontalAlignment.Left);
+            frmConfirmation.LstItems.Columns.Add("Knjiga", 200, HorizontalAlignment.Left);
             frmConfirmation.LstItems.Columns.Add("Kolicina", 70, HorizontalAlignment.Left);
             Response r = Communication.Instance.GetConfirmationItems(confirmation.PotvrdaId);
             if (r.Exception == null && r.Result != null)
@@ -48,6 +48,7 @@ namespace Client.GuiController
             }
             confirmation.Stavke = items;
             RefreshItemTable();
+            MessageBox.Show("Sistem je ucitao podatke o izabranoj potvrdi", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmConfirmation.ShowDialog();
         }
 
@@ -72,14 +73,14 @@ namespace Client.GuiController
                 Response r = Communication.Instance.UpdateConfirmation(confirmation);
                 if (r.Exception == null && (bool)r.Result == true)
                 {
-                    MessageBox.Show("Potvrda uspesno azurirana", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sistem je zapamtio nove podatke o potvrdi", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MainGuiController.Instance.RefreshConfirmationTable();
                     MainGuiController.Instance.RefreshBookTable();
                     frmConfirmation.Dispose();
                 }
                 else
                 {
-                    MessageBox.Show("Greska pri azuriranju", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sistem ne moze da zapamti potvrdu", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }  

@@ -95,6 +95,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUserBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserBook.Designer.cs">
+      <DependentUpon>FrmUserBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUserMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,7 @@
     <Compile Include="GuiController\CreateWriterGuiController.cs" />
     <Compile Include="GuiController\LoginGuiController.cs" />
     <Compile Include="GuiController\MainGuiController.cs" />
+    <Compile Include="GuiController\UserBookGuiController.cs" />
     <Compile Include="GuiController\UserGuiController.cs" />
     <Compile Include="GuiController\UserMainGuiController.cs" />
     <Compile Include="Program.cs" />
@@ -142,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserBook.resx">
+      <DependentUpon>FrmUserBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserMain.resx">
       <DependentUpon>FrmUserMain.cs</DependentUpon>
@@ -172,9 +182,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Default_library_login_page_background_0.jpg" />
   </ItemGroup>
