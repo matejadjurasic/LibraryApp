@@ -74,7 +74,7 @@ namespace Server
 
         public bool UpdateUser(Korisnik korisnik)
         {
-            ZapamtiKorisnikaSO so = new ZapamtiKorisnikaSO(korisnik, korisnik.KorisnikId);
+            ZapamtiKorisnikaSO so = new ZapamtiKorisnikaSO(korisnik);
             so.ExecuteTemplate();
             return so.Result;
         }
@@ -172,7 +172,7 @@ namespace Server
 
         public bool UpdateConfirmation(Potvrda potvrda)
         {
-            ZapamtiPotvrduSO so = new ZapamtiPotvrduSO(potvrda, potvrda.PotvrdaId);
+            ZapamtiPotvrduSO so = new ZapamtiPotvrduSO(potvrda);
             so.ExecuteTemplate();
             return so.Result;
         }

@@ -49,76 +49,13 @@
   <ItemGroup>
     <Compile Include="ClientHandler.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="FrmAddConfirmation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAddConfirmation.Designer.cs">
-      <DependentUpon>FrmAddConfirmation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBook.Designer.cs">
-      <DependentUpon>FrmBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmConfirmation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmConfirmation.Designer.cs">
-      <DependentUpon>FrmConfirmation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCreateBook.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCreateBook.Designer.cs">
-      <DependentUpon>FrmCreateBook.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCreateUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCreateUser.Designer.cs">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCreateWriter.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCreateWriter.Designer.cs">
-      <DependentUpon>FrmCreateWriter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmServer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmServer.Designer.cs">
       <DependentUpon>FrmServer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmUser.Designer.cs">
-      <DependentUpon>FrmUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GuiControllers\AddConfirmationGuiController.cs" />
-    <Compile Include="GuiControllers\BookGuiController.cs" />
-    <Compile Include="GuiControllers\ConfirmationGuiController.cs" />
-    <Compile Include="GuiControllers\CreateBookGuiController.cs" />
-    <Compile Include="GuiControllers\CreateUserGuiController.cs" />
-    <Compile Include="GuiControllers\CreateWriterGuiController.cs" />
-    <Compile Include="GuiControllers\LoginGuiController.cs" />
-    <Compile Include="GuiControllers\MainGuiController.cs" />
     <Compile Include="GuiControllers\ServerGuiController.cs" />
-    <Compile Include="GuiControllers\UserGuiController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />
@@ -142,35 +79,8 @@
     <Compile Include="SystemOperation\ZapamtiKorisnikaSO.cs" />
     <Compile Include="SystemOperation\SacuvajPotvrduSO.cs" />
     <Compile Include="SystemOperation\ZapamtiPotvrduSO.cs" />
-    <EmbeddedResource Include="FrmAddConfirmation.resx">
-      <DependentUpon>FrmAddConfirmation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBook.resx">
-      <DependentUpon>FrmBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmConfirmation.resx">
-      <DependentUpon>FrmConfirmation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCreateBook.resx">
-      <DependentUpon>FrmCreateBook.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCreateUser.resx">
-      <DependentUpon>FrmCreateUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCreateWriter.resx">
-      <DependentUpon>FrmCreateWriter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmServer.resx">
       <DependentUpon>FrmServer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmUser.resx">
-      <DependentUpon>FrmUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

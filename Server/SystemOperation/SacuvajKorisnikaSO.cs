@@ -27,7 +27,6 @@ namespace Server.SystemOperation
             {
                 Result = false;
             }
-            //Result = broker.AddEntity(korisnik);
         }
     }
 }

@@ -10,14 +10,12 @@ namespace Server.SystemOperation
     public class ZapamtiKorisnikaSO : SystemOperationBase
     {
         private readonly Korisnik korisnik;
-        private readonly int korisnikId;
 
         public bool Result { get; private set; }
 
-        public ZapamtiKorisnikaSO(Korisnik korisnik, int korisnikId)
+        public ZapamtiKorisnikaSO(Korisnik korisnik)
         {
             this.korisnik = korisnik;
-            this.korisnikId = korisnikId;
         }
         protected override void ExecuteConcreteOperation()
         {

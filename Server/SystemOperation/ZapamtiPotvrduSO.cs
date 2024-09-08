@@ -10,14 +10,12 @@ namespace Server.SystemOperation
     public class ZapamtiPotvrduSO : SystemOperationBase
     {
         private readonly Potvrda potvrda;
-        private readonly int potvrdaId;
 
         public bool Result { get; private set; }
 
-        public ZapamtiPotvrduSO(Potvrda potvrda, int potvrdaId)
+        public ZapamtiPotvrduSO(Potvrda potvrda)
         {
             this.potvrda = potvrda;
-            this.potvrdaId = potvrdaId;
         }
 
         protected override void ExecuteConcreteOperation()
