@@ -91,7 +91,7 @@ namespace Server
                         r.Result = Controller.Instance.UpdateUser((Korisnik)req.Argument);
                         break;
                     case Operation.GetBook:
-                        r.Result = Controller.Instance.GetBook((int)req.Argument);
+                        r.Result = Controller.Instance.GetBook((Knjiga)req.Argument);
                         break;
                     case Operation.GetAllConfirmations:
                         r.Result = Controller.Instance.GetAllConfirmations();
@@ -130,7 +130,9 @@ namespace Server
                     case Operation.GetAllUsers:
                         r.Result = Controller.Instance.GetAllUsers();
                         break;
-
+                    case Operation.GetUser:
+                        r.Result = Controller.Instance.GetUser((Korisnik)req.Argument);
+                        break;
                 }
             }
             catch (Exception ex)

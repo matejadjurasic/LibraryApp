@@ -22,8 +22,7 @@ namespace Server.SystemOperation
 
         protected override void ExecuteConcreteOperation()
         {
-
-            Result = broker.DeleteEntity(korisnik, korisnikId);
+            Result = broker.DeleteEntity(korisnik);
         }
     }
 }

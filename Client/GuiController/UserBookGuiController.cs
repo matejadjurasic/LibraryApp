@@ -25,7 +25,7 @@ namespace Client.GuiController
 
         internal void ShowFrmUserBook(Knjiga book)
         {
-            Response r = Communication.Instance.GetBook(book.KnjigaId);
+            Response r = Communication.Instance.GetBook(book);
             if (r.Exception == null && r.Result != null)
             {
                 this.book = (Knjiga)r.Result;

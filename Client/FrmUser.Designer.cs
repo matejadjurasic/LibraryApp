@@ -39,7 +39,6 @@ namespace Client
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.checkUpdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // txtName
@@ -128,24 +127,12 @@ namespace Client
             this.btnUpdate.Text = "Azuriraj";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
-            // checkUpdate
-            // 
-            this.checkUpdate.AutoSize = true;
-            this.checkUpdate.Location = new System.Drawing.Point(14, 16);
-            this.checkUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkUpdate.Name = "checkUpdate";
-            this.checkUpdate.Size = new System.Drawing.Size(76, 25);
-            this.checkUpdate.TabIndex = 9;
-            this.checkUpdate.Text = "Izmeni";
-            this.checkUpdate.UseVisualStyleBackColor = true;
-            // 
             // FrmUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(540, 381);
-            this.Controls.Add(this.checkUpdate);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -177,12 +164,10 @@ namespace Client
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.CheckBox checkUpdate;
 
         public TextBox TxtName { get => txtName; set => txtName = value; }
         public TextBox TxtSurname { get => txtSurname; set => txtSurname = value; }
         public TextBox TxtUsername { get => txtUsername; set => txtUsername = value; }
         public TextBox TxtPassword { get => txtPassword; set => txtPassword = value; }
-        public CheckBox CheckUpdate { get => checkUpdate; set => checkUpdate = value; }
     }
 }

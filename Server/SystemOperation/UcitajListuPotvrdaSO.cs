@@ -14,7 +14,7 @@ namespace Server.SystemOperation
 
         protected override void ExecuteConcreteOperation()
         {
-            List<IEntity> entities = broker.GetAllConfirmations();
+            List<IEntity> entities = broker.GetAllEntitiesWithCondition(new Potvrda());
             Result = entities.Cast<Potvrda>().ToList();
         }
     }

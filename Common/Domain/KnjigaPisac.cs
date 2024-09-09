@@ -58,5 +58,31 @@ namespace Common.Domain
             command.Parameters.AddWithValue("@KnjigaId", Knjiga.KnjigaId);
             command.Parameters.AddWithValue("@PisacId", Pisac.PisacId);
         }
+
+        public string GetPrimaryKeyCondition()
+        {
+            //return "KnjigaId = @KnjigaId AND PisacId = @PisacId";
+            return "KnjigaId = @KnjigaId";
+        }
+
+        public void SetPrimaryKeyParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@KnjigaId", Knjiga.KnjigaId);
+            //command.Parameters.AddWithValue("@PisacId", Pisac.PisacId);
+        }
+
+        public string CustomJoinQuery()
+        {
+            return null;  
+        }
+
+        public string CustomWhereClause()
+        {
+            return null; 
+        }
+
+        public void SetWhereParameters(SqlCommand command, params object[] conditions)
+        {
+        }
     }
 }

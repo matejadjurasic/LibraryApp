@@ -19,7 +19,7 @@ namespace Server.SystemOperation
 
         protected override void ExecuteConcreteOperation()
         {
-            List<IEntity> entities = broker.GetConfirmationItems(potvrdaId);
+            List<IEntity> entities = broker.GetAllEntitiesWithCondition(new StavkaPotvrde(),potvrdaId);
             Result = entities.Cast<StavkaPotvrde>().ToList();
         }
     }

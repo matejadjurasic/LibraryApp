@@ -31,6 +31,13 @@ namespace Client.GuiController
 
         public void AddUser(object sender, EventArgs e)
         {
+
+            if (frmCreateUser.TxtName.Text.Length < 1 || frmCreateUser.TxtSurname.Text.Length < 1 || frmCreateUser.TxtPassword.Text.Length < 1 || frmCreateUser.TxtUsername.Text.Length < 1)
+            {
+                MessageBox.Show("Sva polja moraju imati barem jedno slovo", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Korisnik korisnik = new Korisnik 
             {
                 Ime = frmCreateUser.TxtName.Text,

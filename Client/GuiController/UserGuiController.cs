@@ -25,7 +25,11 @@ namespace Client.GuiController
 
         internal void ShowFrmUser(Korisnik user)
         {
-            this.user = user;
+            Response r = Communication.Instance.GetUser(user);
+            if (r.Exception == null && r.Result != null)
+            {
+                this.user = (Korisnik)r.Result;
+            }
             frmUser = new FrmUser();
             frmUser.AutoSize = false;
             frmUser.TxtName.Text = user.Ime;
@@ -37,26 +41,15 @@ namespace Client.GuiController
             frmUser.ShowDialog();
         }
 
-        internal void Checked(object sender, EventArgs e)
-        {
-            if(frmUser.CheckUpdate.Checked)
-            {
-                frmUser.TxtName.ReadOnly = false;
-                frmUser.TxtSurname.ReadOnly = false;
-                frmUser.TxtUsername.ReadOnly = false;
-                frmUser.TxtPassword.ReadOnly = false;
-            }
-            else
-            {
-                frmUser.TxtName.ReadOnly = true;
-                frmUser.TxtSurname.ReadOnly = true;
-                frmUser.TxtUsername.ReadOnly = true;
-                frmUser.TxtPassword.ReadOnly = true;
-            }
-        }
 
         internal void UpdateUser(object sender, EventArgs e)
         {
+            if (frmUser.TxtName.Text.Length < 1 || frmUser.TxtSurname.Text.Length < 1 || frmUser.TxtPassword.Text.Length < 1 || frmUser.TxtUsername.Text.Length < 1)
+            {
+                MessageBox.Show("Sva polja moraju imati barem jedno slovo", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Korisnik updatedUser = new Korisnik
             {
                 KorisnikId = user.KorisnikId,

@@ -205,11 +205,11 @@ namespace Client
             return response;
         }
 
-        internal Response GetBook(int knjigaId)
+        internal Response GetBook(Knjiga book)
         {
             Request req = new Request
             {
-                Argument = knjigaId,
+                Argument = book,
                 Operation = Operation.GetBook
             };
             sender.Send(req);
@@ -272,6 +272,18 @@ namespace Client
                 Operation = Operation.Exit
             };
             sender.Send(req);
+        }
+
+        internal Response GetUser(Korisnik user)
+        {
+            Request req = new Request
+            {
+                Argument = user,
+                Operation = Operation.GetUser
+            };
+            sender.Send(req);
+            Response response = (Response)receiver.Receive();
+            return response;
         }
     }
 }

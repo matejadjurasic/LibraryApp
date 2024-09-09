@@ -17,7 +17,15 @@ namespace Server.SystemOperation
         }
         protected override void ExecuteConcreteOperation()
         {
-            Result = broker.Login(k);
+            List<IEntity> entities = broker.GetAllEntitiesWithCondition(k);
+            if (entities != null && entities.Count > 0)
+            {
+                Result = entities.First() as Korisnik;
+            }
+            else
+            {
+                Result = null;
+            }
         }
     }
 }

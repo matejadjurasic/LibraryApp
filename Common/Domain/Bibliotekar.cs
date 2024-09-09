@@ -83,5 +83,31 @@ namespace Common.Domain
             command.Parameters.AddWithValue("@Sifra", Sifra);
             command.Parameters.AddWithValue("@BibliotekarId", BibliotekarId);
         }
+
+        public string GetPrimaryKeyCondition()
+        {
+            return "BibliotekarId = @BibliotekarId";
+        }
+
+        public void SetPrimaryKeyParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@BibliotekarId", BibliotekarId);
+        }
+
+        public string CustomJoinQuery()
+        {
+            return null; 
+        }
+
+        public string CustomWhereClause()
+        {
+            return "KorisnickoIme = @KorisnickoIme AND Sifra = @Sifra";
+        }
+
+        public void SetWhereParameters(SqlCommand command, params object[] conditions)
+        {
+            command.Parameters.AddWithValue("@KorisnickoIme", KorisnickoIme);
+            command.Parameters.AddWithValue("@Sifra", Sifra);
+        }
     }
 }

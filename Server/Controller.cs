@@ -142,16 +142,16 @@ namespace Server
             return so.Result;
         }
 
-        public Korisnik GetUser(int userId)
+        public Korisnik GetUser(Korisnik korisnik)
         {
-            UcitajKorisnikaSO so = new UcitajKorisnikaSO(userId);
+            UcitajKorisnikaSO so = new UcitajKorisnikaSO(korisnik);
             so.ExecuteTemplate();  
             return so.Result;
         }
 
-        public Knjiga GetBook(int bookId)
+        public Knjiga GetBook(Knjiga knjiga)
         {
-            UcitajKnjiguSO so = new UcitajKnjiguSO(bookId);
+            UcitajKnjiguSO so = new UcitajKnjiguSO(knjiga);
             so.ExecuteTemplate();
             return so.Result;
         }

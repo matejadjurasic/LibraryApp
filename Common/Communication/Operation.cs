@@ -29,5 +29,6 @@ namespace Common.Communication
         GetConfirmationItems,
         AddConfiramtion,
         LoginB,
+        GetUser,
     }
 }

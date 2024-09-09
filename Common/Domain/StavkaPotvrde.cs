@@ -69,5 +69,34 @@ namespace Common.Domain
             command.Parameters.AddWithValue("@StavkaId", StavkaId);
         }
 
+        public string GetPrimaryKeyCondition()
+        {
+            return "StavkaId = @StavkaId";
+        }
+
+        public void SetPrimaryKeyParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@StavkaId", StavkaId);
+        }
+
+        public string CustomJoinQuery()
+        {
+            return @"
+                SELECT sp.StavkaId, sp.Kolicina, 
+                       k.KnjigaId, k.Ime, k.BrojDostupnihKopija, k.BrojKopija,
+                       sp.PotvrdaId
+                FROM StavkaPotvrde sp
+                JOIN Knjiga k ON sp.KnjigaId = k.KnjigaId";
+        }
+
+        public string CustomWhereClause()
+        {
+            return "sp.PotvrdaId = @PotvrdaId";
+        }
+
+        public void SetWhereParameters(SqlCommand command, params object[] conditions)
+        {
+            command.Parameters.AddWithValue("@PotvrdaId", conditions[0]);
+        }
     }
 }

@@ -9,16 +9,16 @@ namespace Server.SystemOperation
 {
     public class UcitajKorisnikaSO : SystemOperationBase
     {
-        private readonly int korisnikId;
+        private readonly Korisnik user;
         public Korisnik Result { get; private set; }
 
-        public UcitajKorisnikaSO(int korisnikId)
+        public UcitajKorisnikaSO(Korisnik user)
         {
-            this.korisnikId = korisnikId;
+            this.user = user;
         }
         protected override void ExecuteConcreteOperation()
         {
-            Result = (Korisnik)broker.GetEntity(new Korisnik(), korisnikId);
+            Result = (Korisnik)broker.GetEntity(user);
         }
     }
 }

@@ -16,7 +16,6 @@ namespace Client
         public FrmUser()
         {
             InitializeComponent();
-            checkUpdate.CheckedChanged += UserGuiController.Instance.Checked;
             btnUpdate.Click += UserGuiController.Instance.UpdateUser;
         }
     }

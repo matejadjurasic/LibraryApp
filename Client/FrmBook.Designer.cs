@@ -41,7 +41,6 @@ namespace Client
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnUpdateBook = new System.Windows.Forms.Button();
-            this.checkUpdate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numCopies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAvailableCopies)).BeginInit();
             this.SuspendLayout();
@@ -151,24 +150,12 @@ namespace Client
             this.btnUpdateBook.Text = "Azuriraj Knjigu";
             this.btnUpdateBook.UseVisualStyleBackColor = true;
             // 
-            // checkUpdate
-            // 
-            this.checkUpdate.AutoSize = true;
-            this.checkUpdate.Location = new System.Drawing.Point(14, 16);
-            this.checkUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.checkUpdate.Name = "checkUpdate";
-            this.checkUpdate.Size = new System.Drawing.Size(76, 25);
-            this.checkUpdate.TabIndex = 11;
-            this.checkUpdate.Text = "Izmeni";
-            this.checkUpdate.UseVisualStyleBackColor = true;
-            // 
             // FrmBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(640, 454);
-            this.Controls.Add(this.checkUpdate);
             this.Controls.Add(this.btnUpdateBook);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -205,13 +192,11 @@ namespace Client
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnUpdateBook;
-        private CheckBox checkUpdate;
 
         public TextBox TxtName { get => txtName; set => txtName = value; }
         public NumericUpDown NumCopies { get => numCopies; set => numCopies = value; }
         public NumericUpDown NumAvailableCopies { get => numAvailableCopies; set => numAvailableCopies = value; }
         public ListBox LstWriters { get => lstWriters; set => lstWriters = value; }
         public ComboBox CboxWriters { get => cboxWriters; set => cboxWriters = value; }
-        public CheckBox CheckUpdate { get => checkUpdate; set => checkUpdate = value; }
     }
 }

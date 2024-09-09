@@ -84,5 +84,31 @@ namespace Common.Domain
             command.Parameters.AddWithValue("@KorisnikId", KorisnikId);
         }
 
+        public string GetPrimaryKeyCondition()
+        {
+            return "KorisnikId = @KorisnikId";
+        }
+
+        public void SetPrimaryKeyParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@KorisnikId", KorisnikId);
+        }
+
+        public string CustomJoinQuery()
+        {
+            return null;  
+        }
+
+        public string CustomWhereClause()
+        {
+            return "KorisnickoIme = @KorisnickoIme AND Sifra = @Sifra";
+        }
+
+        public void SetWhereParameters(SqlCommand command, params object[] conditions)
+        {
+            command.Parameters.AddWithValue("@KorisnickoIme", KorisnickoIme);
+            command.Parameters.AddWithValue("@Sifra", Sifra);
+        }
+
     }
 }

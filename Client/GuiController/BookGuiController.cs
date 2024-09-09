@@ -25,7 +25,7 @@ namespace Client.GuiController
 
         internal void ShowFrmBook(Knjiga book)
         {
-            Response r = Communication.Instance.GetBook(book.KnjigaId);
+            Response r = Communication.Instance.GetBook(book);
             if (r.Exception == null && r.Result != null)
             {
                 this.book = (Knjiga)r.Result;
@@ -48,21 +48,6 @@ namespace Client.GuiController
             frmBook.ShowDialog();
         }
 
-        internal void Checked(object sender, EventArgs e)
-        {
-            if (frmBook.CheckUpdate.Checked)
-            {
-                frmBook.TxtName.ReadOnly = false;
-                frmBook.NumAvailableCopies.ReadOnly = false;
-                frmBook.NumCopies.ReadOnly = false;
-            }
-            else
-            {
-                frmBook.TxtName.ReadOnly = true;
-                frmBook.NumAvailableCopies.ReadOnly = true;
-                frmBook.NumCopies.ReadOnly = true;
-            }
-        }
 
         internal void AddWriter(object sender, EventArgs e)
         {
@@ -99,15 +84,21 @@ namespace Client.GuiController
 
         internal void UpdateBook(object sender, EventArgs e)
         {
+            if (frmBook.TxtName.Text.Length < 1)
+            {
+                MessageBox.Show("Ime mora imati barem jedno slovo", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if ((int)frmBook.NumAvailableCopies.Value > (int)frmBook.NumCopies.Value)
+            {
+                MessageBox.Show("Broj dostupnih kopija mora biti manji ili jednak od ukupnih kopija", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             book.Ime = frmBook.TxtName.Text;
             book.BrojKopija = (int)frmBook.NumCopies.Value;
             book.BrojDostupnihKopija = (int)frmBook.NumAvailableCopies.Value;
-
-            if((int)frmBook.NumAvailableCopies.Value > (int)frmBook.NumCopies.Value)
-            {
-                MessageBox.Show("Broj dostupnih kopija mora biti manji ili jednak od ukupnih kopija", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             Response r = Communication.Instance.UpdateBook(book);
             if (r.Exception == null && (bool)r.Result == true)

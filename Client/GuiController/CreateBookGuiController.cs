@@ -68,6 +68,18 @@ namespace Client.GuiController
 
         internal void AddBook(object sender, EventArgs e)
         {
+            if (frmCreateBook.TxtName.Text.Length < 1)
+            {
+                MessageBox.Show("Ime mora imati barem jedno slovo", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if ((int)frmCreateBook.NumAvailableCopies.Value > (int)frmCreateBook.NumCopies.Value)
+            {
+                MessageBox.Show("Broj dostupnih kopija mora biti manji ili jednak od ukupnih kopija", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             Knjiga book = new Knjiga
             {
                 Ime = frmCreateBook.TxtName.Text,
@@ -75,12 +87,6 @@ namespace Client.GuiController
                 BrojDostupnihKopija = (int)frmCreateBook.NumAvailableCopies.Value,
                 Pisci = writers
             };
-
-            if ((int)frmCreateBook.NumAvailableCopies.Value > (int)frmCreateBook.NumCopies.Value)
-            {
-                MessageBox.Show("Broj dostupnih kopija mora biti manji ili jednak od ukupnih kopija", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             Response r = Communication.Instance.AddBook(book);
             if (r.Exception == null && (bool)r.Result == true)

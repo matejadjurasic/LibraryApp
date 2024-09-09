@@ -55,7 +55,7 @@ namespace Client
             // 
             // txtUser
             // 
-            this.txtUser.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtUser.BackColor = System.Drawing.Color.LightGray;
             this.txtUser.Location = new System.Drawing.Point(134, 127);
             this.txtUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUser.Name = "txtUser";
@@ -65,7 +65,7 @@ namespace Client
             // 
             // txtDate
             // 
-            this.txtDate.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtDate.BackColor = System.Drawing.Color.LightGray;
             this.txtDate.Location = new System.Drawing.Point(134, 219);
             this.txtDate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtDate.Name = "txtDate";
@@ -132,7 +132,7 @@ namespace Client
             // 
             // txtLibrarian
             // 
-            this.txtLibrarian.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.txtLibrarian.BackColor = System.Drawing.Color.LightGray;
             this.txtLibrarian.Location = new System.Drawing.Point(134, 41);
             this.txtLibrarian.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtLibrarian.Name = "txtLibrarian";

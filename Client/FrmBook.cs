@@ -16,7 +16,6 @@ namespace Client
         public FrmBook()
         {
             InitializeComponent();
-            checkUpdate.CheckedChanged += BookGuiController.Instance.Checked;
             btnAddWriters.Click += BookGuiController.Instance.AddWriter;
             btnDeleteWriter.Click += BookGuiController.Instance.DeleteWriter;
             btnUpdateBook.Click += BookGuiController.Instance.UpdateBook;

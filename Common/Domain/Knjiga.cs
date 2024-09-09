@@ -63,5 +63,30 @@ namespace Common.Domain {
             command.Parameters.AddWithValue("@BrojDostupnihKopija", BrojDostupnihKopija);
             command.Parameters.AddWithValue("@KnjigaId", KnjigaId);
         }
+
+        public string GetPrimaryKeyCondition()
+        {
+            return "KnjigaId = @KnjigaId";
+        }
+
+        public void SetPrimaryKeyParameters(SqlCommand command)
+        {
+            command.Parameters.AddWithValue("@KnjigaId", KnjigaId);
+        }
+
+        public string CustomJoinQuery()
+        {
+            return null;  
+        }
+
+        public string CustomWhereClause()
+        {
+            return null; 
+        }
+
+        public void SetWhereParameters(SqlCommand command, params object[] conditions)
+        {
+            // No parameters to set, since there's no WHERE clause
+        }
     }
 }

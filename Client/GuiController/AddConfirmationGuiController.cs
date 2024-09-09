@@ -88,6 +88,12 @@ namespace Client.GuiController
 
         internal void AddConfirmation(object sender, EventArgs e)
         {
+            if(items.Count == 0)
+            {
+                MessageBox.Show("Potvrda mora imati barem jednu stavku", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             potvrda.Stavke = items;
             potvrda.Bibliotekar = bibliotekar;
             if (frmAddConfirmation.CboxUser.SelectedIndex != -1)

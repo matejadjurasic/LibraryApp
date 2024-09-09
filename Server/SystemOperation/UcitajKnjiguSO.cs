@@ -9,19 +9,18 @@ namespace Server.SystemOperation
 {
     public class UcitajKnjiguSO : SystemOperationBase
     {
-        private readonly int knjigaId;
+        private readonly Knjiga book;
         public Knjiga Result { get; private set; }
 
-        public UcitajKnjiguSO(int knjigaId)
+        public UcitajKnjiguSO(Knjiga book)
         {
-            this.knjigaId = knjigaId;
+            this.book = book;
         }
 
         protected override void ExecuteConcreteOperation()
         {
-            Result = (Knjiga)broker.GetEntity(new Knjiga(), knjigaId);
-            //Result.Pisci = broker.GetWritersForBook(knjigaId);
-            List<IEntity> entities = broker.GetWritersForBook(knjigaId);
+            Result = (Knjiga)broker.GetEntity(book);
+            List < IEntity > entities = broker.GetAllEntitiesWithCondition(new Pisac(),book.KnjigaId);
             Result.Pisci = entities.Cast<Pisac>().ToList();
         }
     }

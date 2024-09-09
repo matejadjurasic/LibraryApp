@@ -14,11 +14,13 @@ namespace Common.Domain
         string ColumnNames { get; }
 
         string GetUpdateValues();
-
         string GetUpdateCondition();
-
         void SetUpdateParameters(SqlCommand command);
-
+        string GetPrimaryKeyCondition();
+        string CustomJoinQuery();  
+        string CustomWhereClause();  
+        void SetWhereParameters(SqlCommand command, params object[] conditions);
+        void SetPrimaryKeyParameters(SqlCommand command);
         List<IEntity> GetReaderList(SqlDataReader reader);
     }
 }

@@ -21,7 +21,7 @@ namespace Server.SystemOperation
         protected override void ExecuteConcreteOperation()
         {
             broker.UpdateEntity(knjiga);
-            broker.DeleteBookWriters(knjigaId);
+            broker.DeleteEntity(new KnjigaPisac { Knjiga = knjiga });
             foreach (var pisac in knjiga.Pisci)
             {
                 KnjigaPisac kp = new KnjigaPisac
