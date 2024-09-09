@@ -47,7 +47,6 @@ namespace Client
             this.txtName.Location = new System.Drawing.Point(166, 64);
             this.txtName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(228, 29);
             this.txtName.TabIndex = 0;
             // 
@@ -57,7 +56,6 @@ namespace Client
             this.txtSurname.Location = new System.Drawing.Point(166, 122);
             this.txtSurname.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.ReadOnly = true;
             this.txtSurname.Size = new System.Drawing.Size(228, 29);
             this.txtSurname.TabIndex = 1;
             // 
@@ -67,7 +65,6 @@ namespace Client
             this.txtUsername.Location = new System.Drawing.Point(166, 181);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.ReadOnly = true;
             this.txtUsername.Size = new System.Drawing.Size(228, 29);
             this.txtUsername.TabIndex = 2;
             // 
@@ -77,7 +74,6 @@ namespace Client
             this.txtPassword.Location = new System.Drawing.Point(166, 235);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.ReadOnly = true;
             this.txtPassword.Size = new System.Drawing.Size(228, 29);
             this.txtPassword.TabIndex = 3;
             // 

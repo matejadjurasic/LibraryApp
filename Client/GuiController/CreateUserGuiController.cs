@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -35,6 +36,12 @@ namespace Client.GuiController
             if (frmCreateUser.TxtName.Text.Length < 1 || frmCreateUser.TxtSurname.Text.Length < 1 || frmCreateUser.TxtPassword.Text.Length < 1 || frmCreateUser.TxtUsername.Text.Length < 1)
             {
                 MessageBox.Show("Sva polja moraju imati barem jedno slovo", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(frmCreateUser.TxtName.Text, @"^[A-Za-z]+$") || !Regex.IsMatch(frmCreateUser.TxtSurname.Text, @"^[A-Za-z]+$"))
+            {
+                MessageBox.Show("Ime i prezime moraju imati samo slova", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

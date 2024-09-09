@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,7 +37,6 @@ namespace Client.GuiController
             frmUser.TxtUsername.Text = user.KorisnickoIme;
             frmUser.TxtSurname.Text = user.Prezime;
             frmUser.TxtPassword.Text = user.Sifra;
-            frmUser.TxtPassword.PasswordChar = '*';
             MessageBox.Show("Sistem je ucitao podatke o izabranom korisniku", "Uspeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
             frmUser.ShowDialog();
         }
@@ -47,6 +47,12 @@ namespace Client.GuiController
             if (frmUser.TxtName.Text.Length < 1 || frmUser.TxtSurname.Text.Length < 1 || frmUser.TxtPassword.Text.Length < 1 || frmUser.TxtUsername.Text.Length < 1)
             {
                 MessageBox.Show("Sva polja moraju imati barem jedno slovo", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!Regex.IsMatch(frmUser.TxtName.Text, @"^[A-Za-z]+$") || !Regex.IsMatch(frmUser.TxtSurname.Text, @"^[A-Za-z]+$"))
+            {
+                MessageBox.Show("Ime i prezime moraju imati samo slova", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

@@ -33,11 +33,8 @@ namespace Client.GuiController
             frmBook = new FrmBook();
             frmBook.AutoSize = true;
             frmBook.TxtName.Text = book.Ime;
-            frmBook.TxtName.ReadOnly = true;
             frmBook.NumAvailableCopies.Value = book.BrojDostupnihKopija;
-            frmBook.NumAvailableCopies.ReadOnly = true;
             frmBook.NumCopies.Value = book.BrojKopija;
-            frmBook.NumCopies.ReadOnly = true;
             Response r2 = Communication.Instance.GetAllAuthors();
             if (r2.Exception == null && r2.Result != null)
             {
