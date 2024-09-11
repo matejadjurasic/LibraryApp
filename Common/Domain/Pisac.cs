@@ -104,5 +104,10 @@ namespace Common.Domain
         {
             command.Parameters.AddWithValue("@KnjigaId", conditions[0]);
         }
+
+        public string SearchColumn()
+        {
+            return "Ime";
+        }
     }
 }

@@ -84,5 +84,10 @@ namespace Common.Domain
         public void SetWhereParameters(SqlCommand command, params object[] conditions)
         {
         }
+
+        public string SearchColumn()
+        {
+            return null;
+        }
     }
 }

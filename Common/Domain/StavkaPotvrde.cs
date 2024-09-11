@@ -98,5 +98,10 @@ namespace Common.Domain
         {
             command.Parameters.AddWithValue("@PotvrdaId", conditions[0]);
         }
+
+        public string SearchColumn()
+        {
+            return null;
+        }
     }
 }

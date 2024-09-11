@@ -110,5 +110,8 @@ namespace Common.Domain
             command.Parameters.AddWithValue("@Sifra", Sifra);
         }
 
+        public string SearchColumn()
+        {
+            return "Ime";        }
     }
 }

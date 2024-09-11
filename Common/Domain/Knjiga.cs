@@ -86,7 +86,11 @@ namespace Common.Domain {
 
         public void SetWhereParameters(SqlCommand command, params object[] conditions)
         {
-            // No parameters to set, since there's no WHERE clause
+        }
+
+        public string SearchColumn()
+        {
+            return "Ime";
         }
     }
 }

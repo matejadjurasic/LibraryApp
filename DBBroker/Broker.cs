@@ -145,7 +145,7 @@ namespace DBBroker
         {
             List<IEntity> entities = new List<IEntity>();
             SqlCommand command = connection.CreateCommand();
-            command.CommandText = $"SELECT * FROM {entity.TableName} WHERE Ime LIKE '%{searchValue}%'";
+            command.CommandText = $"SELECT * FROM {entity.TableName} WHERE {entity.SearchColumn()} LIKE '%{searchValue}%'";
             try
             {
                 SqlDataReader reader = command.ExecuteReader();

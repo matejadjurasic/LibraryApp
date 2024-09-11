@@ -21,6 +21,7 @@ namespace Common.Domain
         string CustomWhereClause();  
         void SetWhereParameters(SqlCommand command, params object[] conditions);
         void SetPrimaryKeyParameters(SqlCommand command);
+        string SearchColumn();
         List<IEntity> GetReaderList(SqlDataReader reader);
     }
 }
