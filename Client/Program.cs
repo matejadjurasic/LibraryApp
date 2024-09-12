@@ -1,6 +1,7 @@
 ﻿using Client.GuiController;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Sockets;
@@ -18,7 +19,16 @@ namespace Client
         static void Main()
         {
             //Application.ApplicationExit += (o, e) => { Communication.Instance.Disconnect(); };
-            LoginGuiController.Instance.ShowFrmLogin();
+            try
+            {
+                LoginGuiController.Instance.ShowFrmLogin();
+            }catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                MessageBox.Show("Nemoguce povezivanje sa serverom", "Greska", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
         }
     }
 }

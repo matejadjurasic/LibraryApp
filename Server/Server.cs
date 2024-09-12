@@ -58,12 +58,13 @@ namespace Server
             foreach (ClientHandler client in Controller.Instance.Clients)
             {
                 client.Disconnect();
-            }
+            }   
+
+            socket.Close();
             Controller.Instance.LoggedInUsers.Clear();
             ServerGuiController.Instance.RefreshUserTable();
             Controller.Instance.LoggedInAdmins.Clear();
             ServerGuiController.Instance.RefreshLibrarianTable();
-            socket.Close();
         }
     }
 }

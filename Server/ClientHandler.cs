@@ -31,9 +31,8 @@ namespace Server
         {
             while (true)
             {
+
                 Request req = (Request)receiver.Receive();
-                Response r = ProcessRequest(req);
-                sender.Send(r);
                 if (isRunning == false)
                 {
                     Controller.Instance.Clients.Remove(this);
@@ -41,6 +40,9 @@ namespace Server
                     socket.Close();
                     break;
                 }
+                Response r = ProcessRequest(req);
+                sender.Send(r);
+               
             }
         }
 
